@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 119482382}
   - component: {fileID: 119482381}
   - component: {fileID: 119482380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.8346721, y: -0.49921632}
@@ -206,8 +206,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1212345071
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -750047184722822154, guid: 117d3b5905edd494ab10086375df156d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 218747731}
   - component: {fileID: 218747730}
   - component: {fileID: 218747732}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap_Decorative (collidable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 293635723}
   - component: {fileID: 293635725}
   - component: {fileID: 293635724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap_Decorative
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 651235175}
   - component: {fileID: 651235174}
   - component: {fileID: 651235176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap_Cliffs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6827,7 +6827,7 @@ GameObject:
   - component: {fileID: 666434400}
   - component: {fileID: 666434399}
   - component: {fileID: 666434404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6933,7 +6933,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1212345071
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1929325154, guid: 66fafccac829fe24480bb97e82e8431e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6988,7 +6988,7 @@ GameObject:
   - component: {fileID: 894287854}
   - component: {fileID: 894287856}
   - component: {fileID: 894287855}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9900,7 +9900,7 @@ GameObject:
   - component: {fileID: 1059347104}
   - component: {fileID: 1059347106}
   - component: {fileID: 1059347105}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap_Bridges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10237,7 +10237,7 @@ GameObject:
   - component: {fileID: 1561556100}
   - component: {fileID: 1561556099}
   - component: {fileID: 1561556101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap_Pits(collidable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12034,7 +12034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2028392088}
   - component: {fileID: 2028392087}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12083,7 +12083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2102255371}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
