@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 moveDirection;
     public float moveSpeed = 5f;
     public bool facingRight = true;
-    public Transform firePoint;
     public Animator animator;
     private readonly int _isRunning = Animator.StringToHash("IsRunning");
 
