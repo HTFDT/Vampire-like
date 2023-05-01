@@ -6990,9 +6990,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 2102255371}
-  attackDelay: 1
-  projectile: {fileID: 4138842901290959538, guid: 18b6bf005a783a54a907f9268c83a1d5, type: 3}
+  projectilePrefab: {fileID: 4681826198375141056, guid: 66608838eb57f4c4e83f2301d01e3586, type: 3}
   projectileContainer: {fileID: 1292973117}
+  projectileDataList:
+  - {fileID: 11400000, guid: 538a9e6c2a0c2be4b829c3f9d25590fd, type: 2}
 --- !u!1 &894287853
 GameObject:
   m_ObjectHideFlags: 0

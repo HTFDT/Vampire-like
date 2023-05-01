@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66afd041a6f4b0597c0fb2249703f9d, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  mainAnimatorController: {fileID: 9100000, guid: 836bfbb8db49f9141a532ce43ee84f7e, type: 2}
+  moveSpeed: 5
+  baseDamage: 10
+  impactEffectPrefab: {fileID: 1691913524695361759, guid: 5f1b02f531a796441a151d806dfbd37c, type: 3}
+  impactEffectData: {fileID: 11400000, guid: c1a231aa8cbd5aa4e8c8a7972804260a, type: 2}
