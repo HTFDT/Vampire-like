@@ -7,33 +7,33 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public ProjectileData data;
-    public Animator animator;
-    public float moveSpeed;
-    public float baseDamage;
     public Rigidbody2D rb;
-    public Action<Collision2D> OnCollisionEnter;
+    public Animator animator;
+    public Action<Collision2D> OnCollisionActions;
+    public Action<Rigidbody2D> StartActions;
+    public Action<Rigidbody2D> UpdateActions;
 
     public void Init(ProjectileData pdata)
     {
         data = pdata;
         animator.runtimeAnimatorController = data.MainAnimatorController;
-        moveSpeed = data.MoveSpeed;
-        baseDamage = data.BaseDamage;
-        OnCollisionEnter += data.OnCollision;
+        OnCollisionActions += data.OnCollisionActions;
+        StartActions += data.StartActions;
+        UpdateActions += data.UpdateActions;
     }
     
     private void Start()
     {
-        data.StartActions(rb);
+        StartActions?.Invoke(rb);
     }
     
     private void FixedUpdate()
     {
-        data.UpdateActions(rb);
+        UpdateActions?.Invoke(rb);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        OnCollisionEnter?.Invoke(col);
+        OnCollisionActions?.Invoke(col);
     }
 }

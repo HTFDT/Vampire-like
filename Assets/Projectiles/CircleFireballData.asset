@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a66afd041a6f4b0597c0fb2249703f9d, type: 3}
-  m_Name: Fireball
+  m_Script: {fileID: 11500000, guid: 5570d6f5437d47df8c15a8d5a224d02d, type: 3}
+  m_Name: CircleFireballData
   m_EditorClassIdentifier: 
-  mainAnimatorController: {fileID: 9100000, guid: 836bfbb8db49f9141a532ce43ee84f7e, type: 2}
-  moveSpeed: 5
   baseDamage: 10
+  mainAnimatorController: {fileID: 9100000, guid: 836bfbb8db49f9141a532ce43ee84f7e, type: 2}
   impactEffectPrefab: {fileID: 1691913524695361759, guid: 5f1b02f531a796441a151d806dfbd37c, type: 3}
   impactEffectData: {fileID: 11400000, guid: c1a231aa8cbd5aa4e8c8a7972804260a, type: 2}
+  moveSpeed: 5
+  piercingValue: 3
