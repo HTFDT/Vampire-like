@@ -5,26 +5,29 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Modifiers/New PierceModifierData")]
 public class PierceModifierData : ModifierData
 {
-    public override void ApplyTo(GameObject proj)
+    public override ModifierTag Tag => ModifierTag.OnCollisionAction;
+
+    public override void ApplyTo(GameObject proj, int modifierCount)
     {
-        base.ApplyTo(proj);
-        if (!proj.gameObject.TryGetComponent<PierceController>(out var counter))
-        {
-            counter = proj.gameObject.AddComponent<PierceController>();
-            proj.GetComponent<Projectile>().OnCollisionActions += HandlePiercingOnCollision;
-        }
-        counter.piercesAvailable++;
+        base.ApplyTo(proj, modifierCount);
+        var controller = proj.gameObject.AddComponent<PierceController>();
+        controller.piercesAvailable = modifierCount;
+        proj.GetComponent<Projectile>().OnCollisionActions.AddLast(HandlePiercingOnCollision);
+        
     }
 
-    private void HandlePiercingOnCollision(Collision2D col)
+    private void HandlePiercingOnCollision(Collision2D col, ChainNode<Collision2D> next)
     {
-        if (col.gameObject.CompareTag("Enemy"))
+        var controller = col.otherCollider.GetComponent<PierceController>();
+        if (col.gameObject.CompareTag("Enemy") && --controller.piercesAvailable >= 0)
         {
             Physics2D.IgnoreCollision(col.collider, col.otherCollider);
-            var controller = col.otherCollider.GetComponent<PierceController>();
-            if (--controller.piercesAvailable >= 0) return;
+            if (!next.IsLast)
+                next.Action(col, next.Next);
+            else
+                return;
         }
-        
-        Destroy(col.otherRigidbody.gameObject);
+
+        next?.Action(col, next.Next);
     }
 }

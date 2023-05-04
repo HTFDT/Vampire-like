@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48db8b8a98c6421f8dfce2f561218831, type: 3}
   m_Name: FireballImpactEffectModifier
   m_EditorClassIdentifier: 
+  weight: 0
   impactEffectPrefab: {fileID: 1691913524695361759, guid: 5f1b02f531a796441a151d806dfbd37c, type: 3}
   impactEffectData: {fileID: 11400000, guid: c1a231aa8cbd5aa4e8c8a7972804260a, type: 2}

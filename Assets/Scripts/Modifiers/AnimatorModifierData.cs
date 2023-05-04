@@ -8,9 +8,13 @@ public class AnimatorModifierData : ModifierData
 {
     [SerializeField] private RuntimeAnimatorController mainAnimatorController;
 
-    public override void ApplyTo(GameObject proj)
+    public override ModifierTag Tag => ModifierTag.Initialization;
+
+    public override void ApplyTo(GameObject proj, int modifierCount)
     {
-        base.ApplyTo(proj);
+        base.ApplyTo(proj, modifierCount);
         proj.AddComponent<Animator>().runtimeAnimatorController = mainAnimatorController;
     }
+
+    
 }

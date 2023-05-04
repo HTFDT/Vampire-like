@@ -7,29 +7,28 @@ using UnityEngine;
 public abstract class ProjectileData : ScriptableObject
 {
     [SerializeField] private float baseDamage;
-    [SerializeField] private List<ModifierData> baseModifiers;
+    [SerializeField] private List<ModifierCount> baseModifiers;
     public float BaseDamage => baseDamage;
-    public List<ModifierData> BaseModifiers => baseModifiers;
+    public List<ModifierCount> BaseModifiers => baseModifiers;
 
-    public virtual void AwakeActions(Rigidbody2D rb)
+    public virtual void StartActions(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
     {
+        next?.Action(rb, next.Next);
     }
 
-    public virtual void StartActions(Rigidbody2D rb)
+    public virtual void UpdateActions(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
     {
+        next?.Action(rb, next.Next);
     }
 
-    public virtual void UpdateActions(Rigidbody2D rb)
+    public virtual void OnCollisionActions(Collision2D col, ChainNode<Collision2D> next)
     {
+        next?.Action(col, next.Next);
     }
 
-    public virtual void OnCollisionActions(Collision2D col)
+    public virtual void OnDestroyActions(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
     {
-    }
-
-    public virtual void OnDestroyActions(Rigidbody2D rb)
-    {
-        
+        next?.Action(rb, next.Next);   
     }
     
 }

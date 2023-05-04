@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a0a7611ce54922899f388f119aaabe, type: 3}
   m_Name: PierceModifier
   m_EditorClassIdentifier: 
+  weight: 10

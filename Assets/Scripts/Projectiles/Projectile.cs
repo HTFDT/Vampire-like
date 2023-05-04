@@ -1,54 +1,52 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     public ProjectileData data;
     public Rigidbody2D rb;
-    public Action<Collision2D> OnCollisionActions;
-    public Action<Rigidbody2D> StartActions;
-    public Action<Rigidbody2D> UpdateActions;
-    public Action<Rigidbody2D> AwakeActions;
-    public Action<Rigidbody2D> OnDestroyActions;
+    public DelegateChain<Collision2D> OnCollisionActions;
+    public DelegateChain<Rigidbody2D> StartActions;
+    public DelegateChain<Rigidbody2D> UpdateActions;
+    public DelegateChain<Rigidbody2D> OnDestroyActions;
 
     public void Init(ProjectileData pdata)
     {
-        data = pdata;
-        OnCollisionActions += data.OnCollisionActions;
-        StartActions += data.StartActions;
-        UpdateActions += data.UpdateActions;
-        AwakeActions += data.AwakeActions;
-        OnDestroyActions += data.OnDestroyActions;
+        OnCollisionActions = new DelegateChain<Collision2D>();
+        StartActions = new DelegateChain<Rigidbody2D>();
+        UpdateActions = new DelegateChain<Rigidbody2D>();
+        OnDestroyActions = new DelegateChain<Rigidbody2D>();
         
-        foreach (var mod in data.BaseModifiers)
-            mod.ApplyTo(gameObject);
+        data = pdata;
+        OnCollisionActions.AddLast(data.OnCollisionActions);
+        StartActions.AddLast(data.StartActions);
+        UpdateActions.AddLast(data.UpdateActions);
+        OnDestroyActions.AddLast(data.OnDestroyActions);
+
+        // применять все модификаторы в скрипте ModifierController'а после проверки тегов
+        foreach (var mod in data.BaseModifiers.OrderBy(x => (x.modifier.Tag, x.modifier.weight)))
+        
+            mod.modifier.ApplyTo(gameObject, mod.count);
     }
 
-    private void Awake()
-    {
-        AwakeActions?.Invoke(rb);
-    }
-    
     private void Start()
     {
-        StartActions?.Invoke(rb);
+        StartActions.First?.Action(rb, StartActions.First?.Next);
     }
     
     private void FixedUpdate()
     {
-        UpdateActions?.Invoke(rb);
+        UpdateActions.First?.Action(rb, UpdateActions.First?.Next);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        OnCollisionActions?.Invoke(col);
+        OnCollisionActions.First?.Action(col, OnCollisionActions.First?.Next);
     }
 
     private void OnDestroy()
     {
-        OnDestroyActions?.Invoke(rb);
+        OnDestroyActions.First?.Action(rb, OnDestroyActions.First?.Next);
     }
 }

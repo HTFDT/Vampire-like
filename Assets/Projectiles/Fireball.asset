@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddbd445ba9842e994925cf3d63c4aae, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  baseDamage: 0
+  baseDamage: 5
   baseModifiers:
-  - {fileID: 11400000, guid: b6f2ec1e119e39744968b0a4d9fd9994, type: 2}
-  - {fileID: 11400000, guid: 7638f4928afcdbf4788d663f2ccd7912, type: 2}
-  - {fileID: 11400000, guid: f99ad782c16167f409821e64315959f3, type: 2}
-  - {fileID: 11400000, guid: b439569f02187644893314fa57e16ced, type: 2}
-  - {fileID: 11400000, guid: b439569f02187644893314fa57e16ced, type: 2}
+  - modifier: {fileID: 11400000, guid: 7638f4928afcdbf4788d663f2ccd7912, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: b6f2ec1e119e39744968b0a4d9fd9994, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: f99ad782c16167f409821e64315959f3, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 734603a41f374174c8c6aaf055baa052, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: b439569f02187644893314fa57e16ced, type: 2}
+    count: 2
   speed: 5
