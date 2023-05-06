@@ -23,11 +23,6 @@ public class Projectile : MonoBehaviour
         StartActions.AddLast(data.StartActions);
         UpdateActions.AddLast(data.UpdateActions);
         OnDestroyActions.AddLast(data.OnDestroyActions);
-
-        // применять все модификаторы в скрипте ModifierController'а после проверки тегов
-        foreach (var mod in data.BaseModifiers.OrderBy(x => (x.modifier.Tag, x.modifier.weight)))
-        
-            mod.modifier.ApplyTo(gameObject, mod.count);
     }
 
     private void Start()

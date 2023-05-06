@@ -6974,8 +6974,11 @@ MonoBehaviour:
   firePoint: {fileID: 2102255371}
   projectilePrefab: {fileID: 4681826198375141056, guid: 66608838eb57f4c4e83f2301d01e3586, type: 3}
   projectileContainer: {fileID: 1292973117}
-  projectileDataList:
-  - {fileID: 11400000, guid: 1ade08ff3936b9f49a993fd113b0bd18, type: 2}
+  attackTypes:
+  - {fileID: 11400000, guid: 099a3fa0392536340b5dc02ee6acb29a, type: 2}
+  - {fileID: 11400000, guid: e525e7ddf2980e64fa48df62f6069b95, type: 2}
+  - {fileID: 11400000, guid: b855f50427c6bd942b8043c33fe7b84a, type: 2}
+  - {fileID: 11400000, guid: 5ba7ff9edd6482649ba560663848f85e, type: 2}
 --- !u!1 &894287853
 GameObject:
   m_ObjectHideFlags: 0
