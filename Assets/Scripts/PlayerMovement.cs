@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using System.Drawing;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,13 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public bool facingRight = true;
     public Animator animator;
+    private PlayerInputActions _playerInputActions;
     private readonly int _isRunning = Animator.StringToHash("IsRunning");
+
+    private void Awake()
+    {
+        _playerInputActions = new PlayerInputActions();
+        _playerInputActions.Player.Movement.Enable();
+    }
 
     void Update()
     {
-        moveDirection.x = Input.GetAxisRaw("Horizontal");
-        moveDirection.y = Input.GetAxisRaw("Vertical");
-
+        moveDirection = _playerInputActions.Player.Movement.ReadValue<Vector2>();
         if (moveDirection.x > 0 && !facingRight || moveDirection.x < 0 && facingRight)
             Flip();
     }
