@@ -9,15 +9,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - ProjectileCollidableBackground
+  - Projectiles
   - Water
   - UI
-  - Projectiles
-  - Collidable background
-  - Background
   - Enemies
   - Player
-  - 
+  - PlayerObstacleCollider
+  - NonObstacleBackground
+  - ProjectileIgnoringObstacle
+  - Obstacle
   - 
   - 
   - 
