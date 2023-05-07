@@ -5,19 +5,18 @@ using UnityEngine;
 public abstract class EnemyData : ScriptableObject
 {
     [SerializeField] private RuntimeAnimatorController animatorController;
-    [SerializeField] private int health;
-    [SerializeField] private int damage;
-    [SerializeField] private int moveSpeed;
+    [SerializeField] private float health;
+    [SerializeField] private float damage;
+    [SerializeField] private float moveSpeed;
 
     public RuntimeAnimatorController AnimatorController => animatorController;
-    public int Health => health;
-    public int Damage => damage;
-    public int MoveSpeed => moveSpeed;
+    public float Health => health;
+    public float Damage => damage;
+    public float MoveSpeed => moveSpeed;
 
     public virtual void ApplyTo(GameObject enemyObj)
     {
-        enemyObj.AddComponent<Animator>().runtimeAnimatorController = animatorController;
-        var spriteRenderer = enemyObj.GetComponent<SpriteRenderer>();
-        enemyObj.AddComponent<BoxCollider2D>().size = spriteRenderer.size;
+        enemyObj.AddComponent<AnimatorStateManager>().controller = animatorController;
+        enemyObj.AddComponent<ColliderShaper>();
     }
 }
