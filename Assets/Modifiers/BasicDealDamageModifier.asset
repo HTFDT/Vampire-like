@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a0d6387d3ea476db317d079f7021968, type: 3}
-  m_Name: BringerOfDeath
+  m_Script: {fileID: 11500000, guid: d7b345ab4e3b40f6b74fc16bdd28be95, type: 3}
+  m_Name: BasicDealDamageModifier
   m_EditorClassIdentifier: 
-  animatorController: {fileID: 9100000, guid: c48810a2eaeb2544ba97656f573351e3, type: 2}
-  health: 100
-  damage: 10
-  moveSpeed: 2
+  weight: 0

@@ -18,5 +18,15 @@ public abstract class EnemyData : ScriptableObject
     {
         enemyObj.AddComponent<AnimatorStateManager>().controller = animatorController;
         enemyObj.AddComponent<ColliderShaper>();
+        enemyObj.GetComponent<Enemy>().HandleDamage = HandleDamage;
+    }
+
+    private void HandleDamage(float dmg, GameObject enemy)
+    {
+        var script = enemy.GetComponent<Enemy>();
+        script.health -= dmg;
+        if (!(script.health <= 0)) return;
+        enemy.GetComponent<Animator>().SetBool("IsDead", true);
+        Destroy(enemy);
     }
 }

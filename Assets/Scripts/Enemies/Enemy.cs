@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public Action<Rigidbody2D> UpdateActions;
     public Action<Collision2D> OnCollisionActions;
     public Action<Rigidbody2D> OnDestroyActions;
+    public Action<float, GameObject> HandleDamage;
     public Rigidbody2D rb;
     public float damage;
     public float health;
@@ -40,5 +41,10 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         OnDestroyActions?.Invoke(rb);
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        HandleDamage?.Invoke(dmg, gameObject);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddbd445ba9842e994925cf3d63c4aae, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  baseDamage: 5
+  baseDamage: 50
   baseModifiers:
   - modifier: {fileID: 11400000, guid: 7638f4928afcdbf4788d663f2ccd7912, type: 2}
     count: 1
@@ -22,4 +22,6 @@ MonoBehaviour:
     count: 1
   - modifier: {fileID: 11400000, guid: 734603a41f374174c8c6aaf055baa052, type: 2}
     count: 1
-  speed: 5
+  - modifier: {fileID: 11400000, guid: 9757437089c3cd2409ee7a15807249ce, type: 2}
+    count: 1
+  speed: 10
