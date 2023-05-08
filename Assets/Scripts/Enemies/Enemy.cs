@@ -10,6 +10,17 @@ public class Enemy : MonoBehaviour
     public Action<Collision2D> OnCollisionActions;
     public Action<Rigidbody2D> OnDestroyActions;
     public Rigidbody2D rb;
+    public float damage;
+    public float health;
+    public float moveSpeed;
+
+    public void Init(EnemyData data)
+    {
+        damage = data.Damage;
+        health = data.Health;
+        moveSpeed = data.MoveSpeed;
+        data.ApplyTo(gameObject);
+    }
 
     private void Start()
     {
