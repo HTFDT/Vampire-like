@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     public float singleEnemySpawnRadius;
     public int numberOfCollisionChecks;
     public int maxAttemptsToSpawn;
+    public WaveController waveController;
     private List<Vector2> _pointsOnCircle;
     private Transform _cameraTransform;
 
@@ -30,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
         for (var j = 0f; j < 2 * Mathf.PI; j += 2 * Mathf.PI / numberOfCollisionChecks)
             _pointsOnCircle.Add(new Vector2(Mathf.Cos(j), Mathf.Sin(j)));
         _cameraTransform = Camera.main!.transform;
+        waveController.SpawnWave = SpawnWave;
     }
 
     private void Start()
@@ -37,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnGeneralCoroutine());
     }
 
-    public void SpawnWave(WaveController.Wave wave)
+    private void SpawnWave(WaveController.Wave wave)
     {
         enemyDataList.AddRange(wave.enemies);
 
@@ -48,9 +50,6 @@ public class EnemySpawner : MonoBehaviour
             if (CanSpawnInRadius(pos, waveSpawnRadius, wave.waveSize, out positions))
                 break;
         }
-        
-        if (positions.Count == 0)
-            Debug.LogError("can't spawn wave");
 
         StartCoroutine(SpawnWaveCoroutine(wave, positions));
     }
@@ -66,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
     private bool CanSpawnInRadius(Vector2 position, float radius, int numberToSpawn, out List<Vector2> positions)
     {
-        positions = null;
+        positions = new List<Vector2>();
         var positionsToTry = new List<Vector2>();
         for (var i = 0; i < numberToSpawn; i++)
             positionsToTry.Add(position + Random.insideUnitCircle * radius);

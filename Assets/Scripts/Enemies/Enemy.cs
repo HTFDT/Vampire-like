@@ -10,17 +10,20 @@ public class Enemy : MonoBehaviour
     public Action<Collision2D> OnCollisionActions;
     public Action<Rigidbody2D> OnDestroyActions;
     public Action<float, GameObject> HandleDamage;
+    public HealthBar healthBar;
     public Rigidbody2D rb;
     public float damage;
     public float health;
     public float moveSpeed;
+    private float _maxHealth;
 
     public void Init(EnemyData data)
     {
         damage = data.Damage;
-        health = data.Health;
+        health = _maxHealth = data.Health;
         moveSpeed = data.MoveSpeed;
         data.ApplyTo(gameObject);
+        healthBar.SetHealth(health, _maxHealth);
     }
 
     private void Start()
@@ -38,6 +41,13 @@ public class Enemy : MonoBehaviour
         OnCollisionActions?.Invoke(col);
     }
 
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        var obj = col.gameObject;
+        if (obj.CompareTag("Player"))
+            obj.GetComponent<PlayerHealth>().TakeDamage(damage);
+    }
+
     private void OnDestroy()
     {
         OnDestroyActions?.Invoke(rb);
@@ -46,5 +56,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         HandleDamage?.Invoke(dmg, gameObject);
+        healthBar.SetHealth(health, _maxHealth);
     }
 }

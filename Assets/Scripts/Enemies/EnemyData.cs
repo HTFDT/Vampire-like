@@ -21,7 +21,7 @@ public abstract class EnemyData : ScriptableObject
         enemyObj.GetComponent<Enemy>().HandleDamage = HandleDamage;
     }
 
-    private void HandleDamage(float dmg, GameObject enemy)
+    protected virtual void HandleDamage(float dmg, GameObject enemy)
     {
         var script = enemy.GetComponent<Enemy>();
         script.health -= dmg;
