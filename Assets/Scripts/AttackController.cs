@@ -24,6 +24,7 @@ public class AttackController : MonoBehaviour
         public List<ModifierCount> modifiers;
         public List<ProjectileData> projectiles;
         public float attackDelay;
+        public OnSwitchAbilityData onSwitchAbility;
     }
 
 
@@ -56,6 +57,7 @@ public class AttackController : MonoBehaviour
 
     private IEnumerator LaunchAttackCycle()
     {
+        _currentAttackType.onSwitchAbility.Apply(gameObject);
         while (true)
         {
             foreach (var data in _currentAttackType.projectiles)
