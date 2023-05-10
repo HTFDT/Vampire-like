@@ -9,7 +9,6 @@ public class BuffModifierData : ModifierData
 
     public override void ApplyTo(GameObject projectile, int modifierCount)
     {
-        base.ApplyTo(projectile, modifierCount);
         projectile.GetComponent<Projectile>().OnCollisionActions.AddLast(ApplyBuff);
     }
 

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddd7f0a2373462cbc0ba38990c6f69f, type: 3}
+  m_Name: WindBladeAnimatorModifier
+  m_EditorClassIdentifier: 
+  weight: 0
+  mainAnimatorController: {fileID: 9100000, guid: a8fbc0b8dca695e438d9608f16c574f3, type: 2}

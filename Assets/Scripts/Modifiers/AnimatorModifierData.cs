@@ -12,7 +12,6 @@ public class AnimatorModifierData : ModifierData
 
     public override void ApplyTo(GameObject proj, int modifierCount)
     {
-        base.ApplyTo(proj, modifierCount);
         proj.AddComponent<Animator>().runtimeAnimatorController = mainAnimatorController;
     }
 

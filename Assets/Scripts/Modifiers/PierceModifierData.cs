@@ -9,7 +9,6 @@ public class PierceModifierData : ModifierData
 
     public override void ApplyTo(GameObject proj, int modifierCount)
     {
-        base.ApplyTo(proj, modifierCount);
         var controller = proj.gameObject.AddComponent<PierceController>();
         controller.piercesAvailable = modifierCount;
         proj.GetComponent<Projectile>().OnCollisionActions.AddLast(HandlePiercingOnCollision);

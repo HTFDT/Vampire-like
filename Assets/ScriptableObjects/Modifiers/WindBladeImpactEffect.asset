@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db8b8a98c6421f8dfce2f561218831, type: 3}
+  m_Name: WindBladeImpactEffect
+  m_EditorClassIdentifier: 
+  weight: 0
+  impactEffectPrefab: {fileID: 1691913524695361759, guid: 5f1b02f531a796441a151d806dfbd37c, type: 3}
+  impactEffectData: {fileID: 11400000, guid: abc6f8281145a8e4cbc109e32c5f44d4, type: 2}

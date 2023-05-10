@@ -9,7 +9,5 @@ public abstract class ModifierData : ScriptableObject
     [Tooltip("Applying order weight")]
     public int weight;
 
-    public virtual void ApplyTo(GameObject projectile, int modifierCount)
-    {
-    }
+    public abstract void ApplyTo(GameObject projectile, int modifierCount);
 }

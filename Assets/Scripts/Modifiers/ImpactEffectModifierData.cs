@@ -12,7 +12,6 @@ public class ImpactEffectModifierData : ModifierData
 
     public override void ApplyTo(GameObject proj, int modifierCount)
     {
-        base.ApplyTo(proj, modifierCount);
         proj.GetComponent<Projectile>().OnCollisionActions.AddLast(InstantiateOnCollision);
     }
 

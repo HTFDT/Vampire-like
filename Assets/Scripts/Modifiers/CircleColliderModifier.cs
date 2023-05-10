@@ -8,7 +8,6 @@ public class CircleColliderModifier : ModifierData
 
     public override void ApplyTo(GameObject proj, int modifierCount)
     {
-        base.ApplyTo(proj, modifierCount);
         var container = proj.AddComponent<ColliderInfoContainer>();
         container.circleCollider = proj.AddComponent<CircleCollider2D>();
         container.spriteRenderer = proj.GetComponent<SpriteRenderer>();
