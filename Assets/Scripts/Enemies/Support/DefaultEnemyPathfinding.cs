@@ -63,8 +63,6 @@ public class DefaultEnemyPathfinding : MonoBehaviour
     
     private void Update()
     {
-        var position = _rb.position;
-
         if (_moveDirection.x > 0 && !_facingRight || _moveDirection.x < 0 && _facingRight)
             Flip();
         

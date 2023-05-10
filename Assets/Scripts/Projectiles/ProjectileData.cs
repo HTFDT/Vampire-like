@@ -26,9 +26,9 @@ public abstract class ProjectileData : ScriptableObject
         next?.Action(col, next.Next);
     }
 
-    public virtual void OnDestroyActions(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
+    public virtual void OnDestroyActions(ChainNode next)
     {
-        next?.Action(rb, next.Next);   
+        next?.Action(next.Next);   
     }
     
 }

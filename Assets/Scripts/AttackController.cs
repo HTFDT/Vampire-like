@@ -54,7 +54,7 @@ public class AttackController : MonoBehaviour
         _currentCoroutine = StartCoroutine(LaunchAttackCycle());
     }
 
-    public IEnumerator LaunchAttackCycle()
+    private IEnumerator LaunchAttackCycle()
     {
         while (true)
         {

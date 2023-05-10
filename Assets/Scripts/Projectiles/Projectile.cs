@@ -9,14 +9,14 @@ public class Projectile : MonoBehaviour
     public DelegateChain<Collision2D> OnCollisionActions;
     public DelegateChain<Rigidbody2D> StartActions;
     public DelegateChain<Rigidbody2D> UpdateActions;
-    public DelegateChain<Rigidbody2D> OnDestroyActions;
+    public DelegateChain OnDestroyActions;
 
     public void Init(ProjectileData pdata)
     {
         OnCollisionActions = new DelegateChain<Collision2D>();
         StartActions = new DelegateChain<Rigidbody2D>();
         UpdateActions = new DelegateChain<Rigidbody2D>();
-        OnDestroyActions = new DelegateChain<Rigidbody2D>();
+        OnDestroyActions = new DelegateChain();
         
         data = pdata;
         OnCollisionActions.AddLast(data.OnCollisionActions);
@@ -42,6 +42,6 @@ public class Projectile : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnDestroyActions.First?.Action(rb, OnDestroyActions.First?.Next);
+        OnDestroyActions?.First?.Action(OnDestroyActions?.First?.Next);
     }
 }

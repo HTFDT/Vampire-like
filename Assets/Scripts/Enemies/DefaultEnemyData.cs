@@ -9,5 +9,6 @@ public class DefaultEnemyData : EnemyData
         base.ApplyTo(enemyObj);
         var pathfindingScript = enemyObj.AddComponent<DefaultEnemyPathfinding>();
         var script = enemyObj.GetComponent<Enemy>();
-        script.UpdateActions += rb => pathfindingScript.MakeStep(MoveSpeed); }
+        script.UpdateActions += rb => pathfindingScript.MakeStep(MoveSpeed);
+    }
 }

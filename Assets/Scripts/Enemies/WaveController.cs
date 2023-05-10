@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+
+
+[Serializable]
+public class WaveEvent : UnityEvent<WaveController.Wave>
+{
+}
 
 public class WaveController : MonoBehaviour
 {
@@ -16,13 +23,13 @@ public class WaveController : MonoBehaviour
     
     public float delayBetweenWavesInSeconds;
     public List<Wave> waves;
-    public Action<Wave> SpawnWave;
+    public WaveEvent spawnWave;
 
     private IEnumerator LaunchWaveCountdown()
     {
         foreach (var wave in waves)
         {
-            SpawnWave.Invoke(wave);
+            spawnWave.Invoke(wave);
             yield return new WaitForSeconds(delayBetweenWavesInSeconds);
         }
     }

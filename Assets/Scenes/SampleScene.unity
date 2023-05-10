@@ -15548,7 +15548,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4681826198375141056, guid: 66608838eb57f4c4e83f2301d01e3586, type: 3}
   projectileContainer: {fileID: 421234281}
   attackTypes:
-  - modifiers: []
+  - modifiers:
+    - modifier: {fileID: 11400000, guid: 867c05ac3d0cb07468c2ad264df5e857, type: 2}
+      count: 1
     projectiles:
     - {fileID: 11400000, guid: 1ade08ff3936b9f49a993fd113b0bd18, type: 2}
     attackDelay: 1
@@ -22875,8 +22877,7 @@ MonoBehaviour:
   waveSpawnRadius: 5
   singleEnemySpawnRadius: 1
   numberOfCollisionChecks: 10
-  maxAttemptsToSpawn: 20
-  waveController: {fileID: 2056678365}
+  maxAttemptsToSpawn: 50
 --- !u!4 &2056678364
 Transform:
   m_ObjectHideFlags: 0
@@ -22910,6 +22911,21 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2c7f8ecafcac42745824d7f7367e9d01, type: 2}
     waveSize: 20
     rate: 5
+  spawnWave:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2056678363}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: SpawnWave
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2102255370
 GameObject:
   m_ObjectHideFlags: 0
