@@ -15547,12 +15547,13 @@ MonoBehaviour:
   firePoint: {fileID: 2102255371}
   projectilePrefab: {fileID: 4681826198375141056, guid: 66608838eb57f4c4e83f2301d01e3586, type: 3}
   projectileContainer: {fileID: 421234281}
+  switchCooldown: 5
   attackTypes:
   - modifiers:
     - modifier: {fileID: 11400000, guid: 867c05ac3d0cb07468c2ad264df5e857, type: 2}
       count: 1
     projectiles:
-    - {fileID: 11400000, guid: 1ade08ff3936b9f49a993fd113b0bd18, type: 2}
+    - {fileID: 11400000, guid: 685bb14d4fa5be445ba14aedb9ff1283, type: 2}
     attackDelay: 1
     onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
   - modifiers: []

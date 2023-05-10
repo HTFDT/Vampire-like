@@ -13,10 +13,12 @@ public class AttackController : MonoBehaviour
     public Transform firePoint;
     public GameObject projectilePrefab;
     public GameObject projectileContainer;
+    public float switchCooldown;
     public List<AttackTypeManager> attackTypes;
     private Dictionary<Key, AttackTypeManager> _keyToAttackType;
     private AttackTypeManager _currentAttackType;
     private Coroutine _currentCoroutine;
+    private bool _switchOnCooldown;
 
     [Serializable]
     public class AttackTypeManager
@@ -50,9 +52,19 @@ public class AttackController : MonoBehaviour
 
     private void SwitchAttackType(InputAction.CallbackContext context)
     {
-        _currentAttackType = _keyToAttackType[(context.control as KeyControl)!.keyCode];
+        if (_switchOnCooldown) return;
+        var typeToSwitch = _keyToAttackType[(context.control as KeyControl)!.keyCode];
+        if (_currentAttackType == typeToSwitch) return;
+        _currentAttackType = typeToSwitch;
         StopCoroutine(_currentCoroutine);
         _currentCoroutine = StartCoroutine(LaunchAttackCycle());
+        _switchOnCooldown = true;
+        Invoke(nameof(EndCooldown), switchCooldown);
+    }
+
+    private void EndCooldown()
+    {
+        _switchOnCooldown = false;
     }
 
     private IEnumerator LaunchAttackCycle()
