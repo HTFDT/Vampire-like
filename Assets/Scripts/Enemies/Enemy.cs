@@ -15,13 +15,14 @@ public class Enemy : MonoBehaviour
     public float damage;
     public float health;
     public float moveSpeed;
+    public float initialMoveSpeed;
     private float _maxHealth;
 
     public void Init(EnemyData data)
     {
         damage = data.Damage;
         health = _maxHealth = data.Health;
-        moveSpeed = data.MoveSpeed;
+        moveSpeed = initialMoveSpeed = data.MoveSpeed;
         data.ApplyTo(gameObject);
         healthBar.SetHealth(health, _maxHealth);
     }

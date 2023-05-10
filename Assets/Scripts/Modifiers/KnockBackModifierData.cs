@@ -19,10 +19,9 @@ public class KnockBackModifierData : ModifierData
         next?.Action(col, next.Next);
         if (!col.gameObject.CompareTag("Enemy")) return;
         var script = col.gameObject.GetComponent<Enemy>();
-        var initialMs = script.moveSpeed;
         script.moveSpeed = 0;
         col.rigidbody.AddForce((col.rigidbody.position - col.otherRigidbody.position) * power);
-        script.StartCoroutine(ReturnInitialMoveSpeed(initialMs, script));
+        script.StartCoroutine(ReturnInitialMoveSpeed(script.initialMoveSpeed, script));
     }
 
     private IEnumerator ReturnInitialMoveSpeed(float initialMs, Enemy script)

@@ -17,7 +17,8 @@ public class ImpactEffectModifierData : ModifierData
 
     private void InstantiateOnCollision(Collision2D col, ChainNode<Collision2D> next)
     {
-        var obj = Instantiate(impactEffectPrefab, col.otherRigidbody.position, col.otherRigidbody.transform.rotation);
+        var contact = col.GetContact(0);
+        var obj = Instantiate(impactEffectPrefab, contact.point, col.otherRigidbody.transform.rotation);
         var impactEffect = obj.GetComponent<ImpactEffect>();
         impactEffect.Init(impactEffectData);
         next?.Action(col, next.Next);
