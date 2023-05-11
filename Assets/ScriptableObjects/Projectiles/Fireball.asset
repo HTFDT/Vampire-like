@@ -24,4 +24,6 @@ MonoBehaviour:
     count: 1
   - modifier: {fileID: 11400000, guid: 9757437089c3cd2409ee7a15807249ce, type: 2}
     count: 1
+  - modifier: {fileID: 11400000, guid: 8e890aac24cb4004ba75796a0735950f, type: 2}
+    count: 1
   speed: 10

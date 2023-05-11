@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 
-// эта хуйня отвечает за считывание переключения форм. Т.е. она должна запускать корутины для генерации снарядов и применять к ним все модификаторы.
 public class AttackController : MonoBehaviour
 {
     public Transform firePoint;
@@ -76,10 +75,12 @@ public class AttackController : MonoBehaviour
             {
                 var proj = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation,
                     projectileContainer.transform);
+                proj.SetActive(false);
                 proj.GetComponent<Projectile>().Init(data);
                 foreach (var mod in _currentAttackType.modifiers.Concat(data.BaseModifiers)
                              .OrderBy(mod => (mod.modifier.Tag, mod.modifier.weight)))
                     mod.modifier.ApplyTo(proj, mod.count);
+                proj.SetActive(true);
             }
 
             yield return new WaitForSeconds(_currentAttackType.attackDelay);

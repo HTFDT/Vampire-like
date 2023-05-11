@@ -15822,14 +15822,14 @@ MonoBehaviour:
     - modifier: {fileID: 11400000, guid: 867c05ac3d0cb07468c2ad264df5e857, type: 2}
       count: 1
     projectiles:
-    - {fileID: 11400000, guid: 685bb14d4fa5be445ba14aedb9ff1283, type: 2}
+    - {fileID: 11400000, guid: 1ade08ff3936b9f49a993fd113b0bd18, type: 2}
     attackDelay: 1
     onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
   - modifiers:
     - modifier: {fileID: 11400000, guid: 7302cf2a7d6419e4a9aadf9def2a9510, type: 2}
       count: 1
     projectiles:
-    - {fileID: 11400000, guid: 3bbe0c3d12c3b574cac9c4a3ea62c002, type: 2}
+    - {fileID: 11400000, guid: 92e42094c74fa4b478a2cb7f61e10d68, type: 2}
     attackDelay: 0.5
     onSwitchAbility: {fileID: 11400000, guid: 79dee23e0c337ff499219133ef0955f9, type: 2}
   - modifiers: []
