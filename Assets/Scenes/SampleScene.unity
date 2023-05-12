@@ -15833,7 +15833,7 @@ MonoBehaviour:
     attackType: 1
     onSwitchAbility: {fileID: 11400000, guid: 79dee23e0c337ff499219133ef0955f9, type: 2}
   - modifiers: []
-    projectile: {fileID: 0}
+    projectile: {fileID: 11400000, guid: 74c8a5522a6c083498a8d75b5b14cf6a, type: 2}
     attackDelay: 1
     attackType: 2
     onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
@@ -16328,7 +16328,7 @@ GameObject:
   - component: {fileID: 1209008144}
   m_Layer: 11
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

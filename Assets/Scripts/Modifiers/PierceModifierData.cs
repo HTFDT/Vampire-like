@@ -21,8 +21,8 @@ public class PierceModifierData : ModifierData
         if (col.gameObject.CompareTag("Enemy") && --controller.piercesAvailable >= 0)
         {
             Physics2D.IgnoreCollision(col.collider, col.otherCollider);
-            if (!next.IsLast)
-                next.Action(col, next.Next);
+            if (!next?.IsLast ?? true)
+                next?.Action(col, next.Next);
             else
                 return;
         }
