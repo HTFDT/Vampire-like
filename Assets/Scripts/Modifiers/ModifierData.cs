@@ -8,6 +8,7 @@ public abstract class ModifierData : ScriptableObject
     public abstract ModifierTag Tag { get; }
     [Tooltip("Applying order weight")]
     public int weight;
-
+    public AttackTypesEnum attackType;
+    
     public abstract void ApplyTo(GameObject projectile, int modifierCount);
 }

@@ -25,6 +25,7 @@ public class AttackController : MonoBehaviour
         public List<ModifierCount> modifiers;
         public List<ProjectileData> projectiles;
         public float attackDelay;
+        public AttackTypesEnum attackType;
         public OnSwitchAbilityData onSwitchAbility;
     }
 

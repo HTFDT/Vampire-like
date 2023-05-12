@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2be133c898446f3ab83540cbdb18ea0, type: 3}
   m_Name: CircleColliderModifier
   m_EditorClassIdentifier: 
+  weight: 0
+  attackType: 4

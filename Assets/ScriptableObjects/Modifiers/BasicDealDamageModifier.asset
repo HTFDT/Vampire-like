@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BasicDealDamageModifier
   m_EditorClassIdentifier: 
   weight: 0
+  attackType: 4

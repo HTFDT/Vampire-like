@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: WindCircleAnimatorModifierData
   m_EditorClassIdentifier: 
   weight: 0
+  attackType: 1
   mainAnimatorController: {fileID: 9100000, guid: fdf51eb4db2b49d4d84ea5fa797c0f1d, type: 2}

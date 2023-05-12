@@ -26,5 +26,6 @@ MonoBehaviour:
     count: 1
   - modifier: {fileID: 11400000, guid: 43e18edf486927542920f0e9022e8e34, type: 2}
     count: 1
+  attackType: 1
   maxRadius: 20
   radiusIncrement: 0.3

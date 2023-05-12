@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PierceModifier
   m_EditorClassIdentifier: 
   weight: 10
+  attackType: 4

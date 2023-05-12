@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: FreezePositionModifier
   m_EditorClassIdentifier: 
   weight: 0
+  attackType: 4

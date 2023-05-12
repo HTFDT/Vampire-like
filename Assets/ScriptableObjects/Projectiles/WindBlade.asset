@@ -28,4 +28,5 @@ MonoBehaviour:
     count: 1
   - modifier: {fileID: 11400000, guid: 734603a41f374174c8c6aaf055baa052, type: 2}
     count: 1
+  attackType: 1
   speed: 20

@@ -10,6 +10,7 @@ public abstract class ProjectileData : ScriptableObject
     [SerializeField] private List<ModifierCount> baseModifiers;
     public float BaseDamage => baseDamage;
     public List<ModifierCount> BaseModifiers => baseModifiers;
+    public AttackTypesEnum attackType;
 
     public virtual void StartActions(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
     {

@@ -3,10 +3,9 @@ using System.Collections;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Buffs/New BurningDebuffData")]
-public class BurningDebuffData : BuffData
+[CreateAssetMenu(menuName = "Buffs/New TickingDamageDebuffData")]
+public class TickingDamageDebuffData : BuffData
 {
-    public override BuffAttackType BuffType => BuffAttackType.Fire;
     public float burnDamage;
     public float delayInSeconds;
     public GameObject burningEffectPrefab;

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: WindBladeImpactEffect
   m_EditorClassIdentifier: 
   weight: 0
+  attackType: 1
   impactEffectPrefab: {fileID: 1691913524695361759, guid: 5f1b02f531a796441a151d806dfbd37c, type: 3}
   impactEffectData: {fileID: 11400000, guid: abc6f8281145a8e4cbc109e32c5f44d4, type: 2}

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56777b1998b4f538584013f8b427c31, type: 3}
   m_Name: HitDestroyModifier
   m_EditorClassIdentifier: 
+  weight: 0
+  attackType: 4

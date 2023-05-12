@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: WindKnockBackModifier
   m_EditorClassIdentifier: 
   weight: 0
+  attackType: 1
   power: 10
   recoveryTime: 0.5
