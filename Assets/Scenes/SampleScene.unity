@@ -15840,8 +15840,8 @@ MonoBehaviour:
     attackType: 2
     onSwitchAbility: {fileID: 11400000, guid: 5375aaeacf76718489d681f723c37e88, type: 2}
   - modifiers: []
-    projectile: {fileID: 0}
-    attackDelay: 1
+    projectile: {fileID: 11400000, guid: 5590d886260744641bf853614c893d64, type: 2}
+    attackDelay: 2
     attackType: 3
     onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
 --- !u!70 &666434406
