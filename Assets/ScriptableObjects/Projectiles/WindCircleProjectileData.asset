@@ -20,9 +20,11 @@ MonoBehaviour:
     count: 1
   - modifier: {fileID: 11400000, guid: 1cb55a8f006caf94a8a9da8504de186a, type: 2}
     count: 1
-  - modifier: {fileID: 11400000, guid: 7302cf2a7d6419e4a9aadf9def2a9510, type: 2}
-    count: 1
   - modifier: {fileID: 11400000, guid: 43e18edf486927542920f0e9022e8e34, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: f95c5df642e83da4589df0a892f91213, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 7761036d74914da4b8ad6677dec7d923, type: 2}
     count: 1
   attackType: 1
   maxRadius: 20

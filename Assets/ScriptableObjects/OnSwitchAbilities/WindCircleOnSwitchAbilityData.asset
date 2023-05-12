@@ -15,5 +15,5 @@ MonoBehaviour:
   projectileData: {fileID: 11400000, guid: 185b32ad641c48441bd3538911f49286, type: 2}
   projectilePrefab: {fileID: 4681826198375141056, guid: 66608838eb57f4c4e83f2301d01e3586, type: 3}
   modifiers:
-  - modifier: {fileID: 11400000, guid: f9c154ef84ee2e045961c83d07952d68, type: 2}
+  - modifier: {fileID: 11400000, guid: 7302cf2a7d6419e4a9aadf9def2a9510, type: 2}
     count: 1
