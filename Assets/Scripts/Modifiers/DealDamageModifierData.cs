@@ -16,6 +16,6 @@ public class DealDamageModifierData : ModifierData
         var other = col.gameObject;
         if (other.CompareTag("Enemy"))
             other.GetComponent<Enemy>().TakeDamage(col.otherRigidbody.gameObject.GetComponent<Projectile>().data.BaseDamage);
-        next.Action.Invoke(col, next.Next);
+        next?.Action.Invoke(col, next.Next);
     }
 }
