@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     private float _maxHealth;
     public float invincibilityTimeInSeconds;
-    private bool _canTakeDamage = true;
+    public bool canTakeDamage = true;
     private static readonly int IsDead = Animator.StringToHash("IsDead");
 
     private void Awake()
@@ -24,19 +24,20 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        if (_canTakeDamage)
+        if (canTakeDamage)
         {
             health -= dmg;
             if (health <= 0)
                 gameObject.GetComponent<Animator>().SetBool(IsDead, true);
-            _canTakeDamage = false;
-            Invoke(nameof(WaitUntilInvincibilityTimePass), invincibilityTimeInSeconds);
+            canTakeDamage = false;
+            StartCoroutine(WaitUntilInvincibilityTimePass());
         }
         healthBar.SetHealth(health, _maxHealth);
     }
 
-    private void WaitUntilInvincibilityTimePass()
+    private IEnumerator WaitUntilInvincibilityTimePass()
     {
-        _canTakeDamage = true;
+        yield return new WaitForSeconds(invincibilityTimeInSeconds);
+        canTakeDamage = true;
     }
 }

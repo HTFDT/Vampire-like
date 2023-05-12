@@ -15836,7 +15836,7 @@ MonoBehaviour:
     projectile: {fileID: 11400000, guid: 74c8a5522a6c083498a8d75b5b14cf6a, type: 2}
     attackDelay: 1
     attackType: 2
-    onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
+    onSwitchAbility: {fileID: 11400000, guid: 5375aaeacf76718489d681f723c37e88, type: 2}
   - modifiers: []
     projectile: {fileID: 0}
     attackDelay: 1
@@ -15873,6 +15873,7 @@ MonoBehaviour:
   healthBar: {fileID: 1079427738}
   health: 100
   invincibilityTimeInSeconds: 0.5
+  canTakeDamage: 1
 --- !u!1 &919022816
 GameObject:
   m_ObjectHideFlags: 0
