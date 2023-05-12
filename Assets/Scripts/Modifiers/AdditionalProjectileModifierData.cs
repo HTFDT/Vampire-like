@@ -15,7 +15,8 @@ public class AdditionalProjectileModifierData : ModifierData
     {
         var attackController = GameObject.FindWithTag("Player")
             .GetComponent<AttackController>();
-        var manager = attackController.AttackTypeToManager[attackType];
+        var manager = attackController
+            .attackTypes.Single(manager => manager.attackType == attackType);
         var script = projectile.GetComponent<Projectile>();
         var projectileContainer = GameObject.FindWithTag("ProjectileContainer").transform;
         script.StartActions.AddLast((rb, next) =>
@@ -27,18 +28,14 @@ public class AdditionalProjectileModifierData : ModifierData
 
         IEnumerator SpawnAdditionalProjectile()
         {
-            var modsToApply = manager.modifiers
-                .Where(mod => mod.modifier is not AdditionalProjectileModifierData)
-                .Concat(additionalProjectile.BaseModifiers).ToArray();
             for (var i = 0; i < modifierCount; i++)
             {
                 yield return new WaitForSeconds(manager.attackDelay * delayCorrelationFromManagerDelay);
                 var proj = Instantiate(projectilePrefab, attackController.firePoint.position,
                     attackController.firePoint.rotation, projectileContainer);
                 proj.SetActive(false);
-                proj.GetComponent<Projectile>().Init(additionalProjectile);
-                foreach (var mod in modsToApply)
-                    mod.modifier.ApplyTo(proj, mod.count);
+                proj.GetComponent<Projectile>().Init(additionalProjectile,
+                    script.AdditionalModifiers.Where(cnt => cnt.modifier is not AdditionalProjectileModifierData));
                 proj.SetActive(true);
             }
         }

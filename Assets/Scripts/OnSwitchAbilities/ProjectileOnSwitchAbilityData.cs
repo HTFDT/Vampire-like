@@ -13,8 +13,6 @@ public class ProjectileOnSwitchAbilityData : OnSwitchAbilityData
     public override void Apply(GameObject player)
     {
         var proj = Instantiate(projectilePrefab, player.transform.position, player.transform.rotation, player.transform);
-        proj.GetComponent<Projectile>().Init(projectileData);
-        foreach (var mod in modifiers.Concat(projectileData.BaseModifiers))
-            mod.modifier.ApplyTo(proj, mod.count);
+        proj.GetComponent<Projectile>().Init(projectileData, modifiers);
     }
 }

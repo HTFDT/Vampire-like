@@ -81,10 +81,7 @@ public class AttackController : MonoBehaviour
             var proj = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation,
                 projectileContainer.transform);
             proj.SetActive(false);
-            proj.GetComponent<Projectile>().Init(data);
-            foreach (var mod in AttackTypeToManager[_currentAttackType].modifiers.Concat(data.BaseModifiers)
-                         .OrderBy(mod => (mod.modifier.Tag, mod.modifier.weight)))
-                mod.modifier.ApplyTo(proj, mod.count);
+            proj.GetComponent<Projectile>().Init(data, AttackTypeToManager[_currentAttackType].modifiers);
             proj.SetActive(true);
 
 
