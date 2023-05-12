@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 421234282}
   m_Layer: 0
   m_Name: ProjectileContainer
-  m_TagString: Untagged
+  m_TagString: ProjectileContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15821,26 +15821,24 @@ MonoBehaviour:
   - modifiers:
     - modifier: {fileID: 11400000, guid: 867c05ac3d0cb07468c2ad264df5e857, type: 2}
       count: 1
-    projectiles:
-    - {fileID: 11400000, guid: 1ade08ff3936b9f49a993fd113b0bd18, type: 2}
+    projectile: {fileID: 11400000, guid: 1ade08ff3936b9f49a993fd113b0bd18, type: 2}
     attackDelay: 1
     attackType: 0
     onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
   - modifiers:
     - modifier: {fileID: 11400000, guid: 7302cf2a7d6419e4a9aadf9def2a9510, type: 2}
       count: 1
-    projectiles:
-    - {fileID: 11400000, guid: 92e42094c74fa4b478a2cb7f61e10d68, type: 2}
+    projectile: {fileID: 11400000, guid: 92e42094c74fa4b478a2cb7f61e10d68, type: 2}
     attackDelay: 0.5
     attackType: 1
     onSwitchAbility: {fileID: 11400000, guid: 79dee23e0c337ff499219133ef0955f9, type: 2}
   - modifiers: []
-    projectiles: []
+    projectile: {fileID: 0}
     attackDelay: 1
     attackType: 2
     onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
   - modifiers: []
-    projectiles: []
+    projectile: {fileID: 0}
     attackDelay: 1
     attackType: 3
     onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}

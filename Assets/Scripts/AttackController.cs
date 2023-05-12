@@ -14,16 +14,17 @@ public class AttackController : MonoBehaviour
     public GameObject projectileContainer;
     public float switchCooldown;
     public List<AttackTypeManager> attackTypes;
-    private Dictionary<Key, AttackTypeManager> _keyToAttackType;
-    private AttackTypeManager _currentAttackType;
+    private Dictionary<Key, AttackTypesEnum> _keyToAttackType;
+    private AttackTypesEnum _currentAttackType;
     private Coroutine _currentCoroutine;
     private bool _switchOnCooldown;
+    public Dictionary<AttackTypesEnum, AttackTypeManager> AttackTypeToManager;
 
     [Serializable]
     public class AttackTypeManager
     {
         public List<ModifierCount> modifiers;
-        public List<ProjectileData> projectiles;
+        public ProjectileData projectile;
         public float attackDelay;
         public AttackTypesEnum attackType;
         public OnSwitchAbilityData onSwitchAbility;
@@ -35,14 +36,18 @@ public class AttackController : MonoBehaviour
         var actions = new PlayerInputActions();
         actions.Player.SwitchAttackType.Enable();
         actions.Player.SwitchAttackType.performed += SwitchAttackType;
-        _keyToAttackType = new Dictionary<Key, AttackTypeManager>
+        _keyToAttackType = new Dictionary<Key, AttackTypesEnum>
         {
-            [Key.Q] = attackTypes[0],
-            [Key.W] = attackTypes[1],
-            [Key.E] = attackTypes[2],
-            [Key.R] = attackTypes[3]
+            [Key.Q] = AttackTypesEnum.Fire,
+            [Key.W] = AttackTypesEnum.Air,
+            [Key.E] = AttackTypesEnum.Water,
+            [Key.R] = AttackTypesEnum.Earth
         };
         _currentAttackType = _keyToAttackType[Key.Q];
+
+        AttackTypeToManager = new Dictionary<AttackTypesEnum, AttackTypeManager>();
+        foreach (var manager in attackTypes)
+            AttackTypeToManager[manager.attackType] = manager;
     }
 
     private void Start()
@@ -69,22 +74,21 @@ public class AttackController : MonoBehaviour
 
     private IEnumerator LaunchAttackCycle()
     {
-        _currentAttackType.onSwitchAbility.Apply(gameObject);
+        AttackTypeToManager[_currentAttackType].onSwitchAbility.Apply(gameObject);
         while (true)
         {
-            foreach (var data in _currentAttackType.projectiles)
-            {
-                var proj = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation,
-                    projectileContainer.transform);
-                proj.SetActive(false);
-                proj.GetComponent<Projectile>().Init(data);
-                foreach (var mod in _currentAttackType.modifiers.Concat(data.BaseModifiers)
-                             .OrderBy(mod => (mod.modifier.Tag, mod.modifier.weight)))
-                    mod.modifier.ApplyTo(proj, mod.count);
-                proj.SetActive(true);
-            }
+            var data = AttackTypeToManager[_currentAttackType].projectile;
+            var proj = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation,
+                projectileContainer.transform);
+            proj.SetActive(false);
+            proj.GetComponent<Projectile>().Init(data);
+            foreach (var mod in AttackTypeToManager[_currentAttackType].modifiers.Concat(data.BaseModifiers)
+                         .OrderBy(mod => (mod.modifier.Tag, mod.modifier.weight)))
+                mod.modifier.ApplyTo(proj, mod.count);
+            proj.SetActive(true);
 
-            yield return new WaitForSeconds(_currentAttackType.attackDelay);
+
+            yield return new WaitForSeconds(AttackTypeToManager[_currentAttackType].attackDelay);
         }
     }
 }
