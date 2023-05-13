@@ -14,7 +14,7 @@ public class DefaultEnemyPathfinding : MonoBehaviour
     private bool _endOfPathReached;
     private Animator _animator;
     private Vector2 _moveDirection;
-    private bool _facingRight;
+    private bool _facingRight = true;
     
     private void Awake()
     {

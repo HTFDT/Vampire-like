@@ -14,6 +14,9 @@ public class ColliderShaper : MonoBehaviour
 
     private void Update()
     {
-        _collider.size = _renderer.size;
+        if (_renderer.sprite == null) return;
+        var sprite = _renderer.sprite;
+        _collider.direction = sprite.rect.size.x > sprite.rect.size.y ? CapsuleDirection2D.Horizontal : CapsuleDirection2D.Vertical;
+        _collider.size = sprite.rect.size / sprite.pixelsPerUnit;
     }
 }
