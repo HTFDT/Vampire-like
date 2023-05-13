@@ -6,22 +6,22 @@ using UnityEngine;
 public class DefaultEnemyPathfinding : MonoBehaviour
 {
     public float nextCheckpointDistance = .5f;
-    private Transform _target;
-    private Seeker _seeker;
-    private Rigidbody2D _rb;
-    private Path _path;
-    private int _currentCheckpoint;
-    private bool _endOfPathReached;
-    private Animator _animator;
-    private Vector2 _moveDirection;
-    private bool _facingRight = true;
+    public Transform target;
+    protected Seeker Seeker;
+    protected Rigidbody2D Rb;
+    protected Path Path;
+    protected int CurrentCheckpoint;
+    protected bool EndOfPathReached;
+    protected Animator Animator;
+    protected Vector2 MoveDirection;
+    protected bool FacingRight = true;
     
     private void Awake()
     {
-        _target = GameObject.FindWithTag("Player").transform;
-        _seeker = gameObject.GetComponent<Seeker>();
-        _rb = gameObject.GetComponent<Rigidbody2D>();
-        _animator = gameObject.GetComponent<Animator>();
+        target = GameObject.FindWithTag("Player").transform;
+        Seeker = gameObject.GetComponent<Seeker>();
+        Rb = gameObject.GetComponent<Rigidbody2D>();
+        Animator = gameObject.GetComponent<Animator>();
     }
 
     private void Start()
@@ -31,47 +31,47 @@ public class DefaultEnemyPathfinding : MonoBehaviour
 
     private void StartPath()
     {
-        if (_seeker.IsDone())
-            _seeker.StartPath(_rb.position, _target.position, OnPathComplete);
+        if (Seeker.IsDone())
+            Seeker.StartPath(Rb.position, target.position, OnPathComplete);
     }
 
     private void OnPathComplete(Path path)
     {
         if (!path.error)
         {
-            _path = path;
-            _currentCheckpoint = 0;
+            Path = path;
+            CurrentCheckpoint = 0;
         }
     }
 
     public void MakeStep(float speed)
     {
-        if (_path == null)
+        if (Path == null)
             return;
 
-        _endOfPathReached = _currentCheckpoint >= _path.vectorPath.Count;
-        if (_endOfPathReached)
+        EndOfPathReached = CurrentCheckpoint >= Path.vectorPath.Count;
+        if (EndOfPathReached)
             return;
 
-        var position = _rb.position;
-        _moveDirection = ((Vector2)_path.vectorPath[_currentCheckpoint] - position).normalized;
-        _rb.MovePosition(position + _moveDirection * (speed * Time.fixedDeltaTime));
-        var distanceToNextCheckpoint = Vector2.Distance(_rb.position, _path.vectorPath[_currentCheckpoint]);
+        var position = Rb.position;
+        MoveDirection = ((Vector2)Path.vectorPath[CurrentCheckpoint] - position).normalized;
+        Rb.MovePosition(position + MoveDirection * (speed * Time.fixedDeltaTime));
+        var distanceToNextCheckpoint = Vector2.Distance(Rb.position, Path.vectorPath[CurrentCheckpoint]);
         if (distanceToNextCheckpoint < nextCheckpointDistance)
-            _currentCheckpoint++;
+            CurrentCheckpoint++;
     }
     
     private void Update()
     {
-        if (_moveDirection.x > 0 && !_facingRight || _moveDirection.x < 0 && _facingRight)
+        if (MoveDirection.x > 0 && !FacingRight || MoveDirection.x < 0 && FacingRight)
             Flip();
         
-        _animator.SetBool("IsRunning", _moveDirection.magnitude > 0);
+        Animator.SetBool("IsRunning", MoveDirection.magnitude > 0);
     }
     
     private void Flip()
     {
-        _facingRight = !_facingRight;
+        FacingRight = !FacingRight;
         transform.Rotate(0f, 180f, 0f);
     }
 }
