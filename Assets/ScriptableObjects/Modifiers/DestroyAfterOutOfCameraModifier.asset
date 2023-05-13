@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 10
   attackType: 4
+  distanceFromCameraBorder: 15
