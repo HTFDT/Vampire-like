@@ -12,8 +12,7 @@ public class DestroyAfterOutOfCameraModifierData : ModifierData
 
         void DestroyIfOutOfCamera(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
         {
-            if (rb.position.x < cameraProps.Left || rb.position.x > cameraProps.Right ||
-                rb.position.y < cameraProps.Bottom || rb.position.y > cameraProps.Top)
+            if (!cameraProps.InBounds(rb.position))
                 Destroy(rb.gameObject);
             next?.Action(rb, next.Next);
         }

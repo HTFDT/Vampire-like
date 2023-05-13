@@ -14,7 +14,7 @@ public class SelfInstantiatingProjectileData : ProjectileData
         var camProps = Camera.main!.GetComponent<CameraProps>();
         var script = rb.gameObject.GetComponent<Projectile>();
         var projectileContainer = GameObject.FindWithTag("ProjectileContainer");
-        if (rb.position.x < camProps.Left || rb.position.x > camProps.Right) return;
+        if (!camProps.InBounds(rb.position)) return;
         script.StartCoroutine(SpawnNextSegment(rb, script, projectileContainer.transform));
     }
 

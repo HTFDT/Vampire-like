@@ -18,4 +18,9 @@ public class CameraProps : MonoBehaviour
     public float Top => gameObject.transform.position.y + _cam!.orthographicSize;
 
     public float Bottom => gameObject.transform.position.y - _cam!.orthographicSize;
+
+    public bool InBounds(Vector2 pt)
+    {
+        return pt.x >= Left && pt.x <= Right && pt.y <= Top && pt.y >= Bottom;
+    }
 }
