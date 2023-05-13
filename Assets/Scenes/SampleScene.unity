@@ -23652,12 +23652,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb10f5e30a20400fa06ab65b071af2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBetweenWavesInSeconds: 300
+  delayBetweenWavesInSeconds: 10
   waves:
   - enemies:
     - {fileID: 11400000, guid: 2c7f8ecafcac42745824d7f7367e9d01, type: 2}
     waveSize: 20
-    rate: 5
+    rate: 10
+  - enemies:
+    - {fileID: 11400000, guid: b6e84e745c5832c40aef4058109b03ad, type: 2}
+    waveSize: 20
+    rate: 10
+  - enemies:
+    - {fileID: 11400000, guid: 0cf3a282efc1dbd43b303c5d6b883a30, type: 2}
+    waveSize: 10
+    rate: 10
   spawnWave:
     m_PersistentCalls:
       m_Calls:

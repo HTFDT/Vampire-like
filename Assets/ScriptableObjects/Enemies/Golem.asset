@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4062f7b9da6d4ec38ee8d32f5e90251a, type: 3}
   m_Name: Golem
   m_EditorClassIdentifier: 
-  animatorController: {fileID: 0}
-  health: 0
-  damage: 0
-  moveSpeed: 0
-  dashDistance: 0
-  dashSpeed: 0
-  dashTime: 0
+  animatorController: {fileID: 9100000, guid: b17584ec35ec1b4449fabb4b24164fcb, type: 2}
+  health: 1000
+  damage: 50
+  moveSpeed: 1
+  dashDistance: 15
+  dashSpeed: 5
+  dashTimeInSeconds: 2
+  dashCooldownInSeconds: 7

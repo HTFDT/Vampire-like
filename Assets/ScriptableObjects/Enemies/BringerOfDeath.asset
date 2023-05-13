@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0d6387d3ea476db317d079f7021968, type: 3}
   m_Name: BringerOfDeath
   m_EditorClassIdentifier: 
-  animatorController: {fileID: 9100000, guid: c48810a2eaeb2544ba97656f573351e3, type: 2}
+  animatorController: {fileID: 9100000, guid: 18c37f5c6b44cef419d1ef8f1077460c, type: 2}
   health: 100
   damage: 10
   moveSpeed: 2

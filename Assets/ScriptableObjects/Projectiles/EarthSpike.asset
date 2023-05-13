@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209a8ae07eff40769dc9ee22cdaa93b0, type: 3}
   m_Name: EarthSpike
   m_EditorClassIdentifier: 
-  baseDamage: 100
+  baseDamage: 50
   baseModifiers:
   - modifier: {fileID: 11400000, guid: 1cf30044aa450254e8bf06841ef89abe, type: 2}
     count: 1
@@ -20,10 +20,15 @@ MonoBehaviour:
     count: 1
   - modifier: {fileID: 11400000, guid: 9757437089c3cd2409ee7a15807249ce, type: 2}
     count: 1
-  - modifier: {fileID: 11400000, guid: cfa58619bed8dd0449f94476a3027a6e, type: 2}
+  - modifier: {fileID: 11400000, guid: 7686f55ec05ccf34098532367502974f, type: 2}
     count: 1
   - modifier: {fileID: 11400000, guid: 7761036d74914da4b8ad6677dec7d923, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 7c6797da4f2072a4abcecac5a624ce46, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: f9c154ef84ee2e045961c83d07952d68, type: 2}
     count: 1
   attackType: 3
   projectilePrefab: {fileID: 4681826198375141056, guid: 66608838eb57f4c4e83f2301d01e3586, type: 3}
   delayBeforeNextSegmentSpawn: 0.1
+  distanceBetweenSegmentsRelativeToSize: 0.8

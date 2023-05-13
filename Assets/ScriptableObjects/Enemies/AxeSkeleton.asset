@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0d6387d3ea476db317d079f7021968, type: 3}
   m_Name: AxeSkeleton
   m_EditorClassIdentifier: 
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 56b1bca01021af2469e60aaac376edf4, type: 2}
   health: 100
   damage: 10
   moveSpeed: 3
