@@ -7,6 +7,7 @@ public class SelfInstantiatingProjectileData : ProjectileData
 {
     public GameObject projectilePrefab;
     public float delayBeforeNextSegmentSpawn;
+    public float distanceBetweenSegmentsRelativeToSize;
 
     public override void StartActions(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
     {
@@ -23,7 +24,8 @@ public class SelfInstantiatingProjectileData : ProjectileData
         yield return new WaitForSeconds(delayBeforeNextSegmentSpawn);
         var transform = rb.transform;
         var spriteRenderer = rb.gameObject.GetComponent<SpriteRenderer>();
-        var proj = Instantiate(projectilePrefab, rb.position + (Vector2)(transform.right * (spriteRenderer.size.x * .5f)),
+        var proj = Instantiate(projectilePrefab,
+            rb.position + (Vector2)(transform.right * (spriteRenderer.size.x * distanceBetweenSegmentsRelativeToSize)),
             transform.rotation, parent);
         proj.SetActive(false);
         var sc = proj.GetComponent<Projectile>();

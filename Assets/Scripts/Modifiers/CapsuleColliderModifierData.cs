@@ -15,9 +15,10 @@ public class CapsuleColliderModifierData : ModifierData
     {
         var collider = rb.gameObject.GetComponent<CapsuleCollider2D>();
         var spriteRenderer = rb.gameObject.GetComponent<SpriteRenderer>();
-        var size = spriteRenderer.size;
-        collider.direction = size.x > size.y ? CapsuleDirection2D.Horizontal : CapsuleDirection2D.Vertical;
-        collider.size = size;
+        if (spriteRenderer.sprite == null) return;
+        var sprite = spriteRenderer.sprite;
+        collider.direction = sprite.rect.size.x > sprite.rect.size.y ? CapsuleDirection2D.Horizontal : CapsuleDirection2D.Vertical;
+        collider.size = sprite.rect.size / sprite.pixelsPerUnit;
         next?.Action.Invoke(rb, next.Next);
     }
 }
