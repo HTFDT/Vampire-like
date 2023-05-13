@@ -4,7 +4,7 @@
 [CreateAssetMenu(menuName = "Modifiers/New CircleColliderModifier")]
 public class CircleColliderModifier : ModifierData
 {
-    public override ModifierTag Tag => ModifierTag.OnUpdateAction;
+    public override ModifierTag Tag => ModifierTag.Initialization;
 
     public override void ApplyTo(GameObject proj, int modifierCount)
     {

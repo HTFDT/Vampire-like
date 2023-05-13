@@ -9,9 +9,14 @@ public class BuffContainer : MonoBehaviour
 
     public void ApplyBuff(BuffData buffData)
     {
+        if (!_buffDataToDuration.ContainsKey(buffData))
+        {
+            _buffDataToDuration[buffData] = buffData.duration;
+            StartCoroutine(buffData.Buff(gameObject, () => _buffDataToDuration[buffData] > 0,
+                () => _buffDataToDuration.Remove(buffData)));
+            return;
+        }
         _buffDataToDuration[buffData] = buffData.duration;
-        StartCoroutine(buffData.Buff(gameObject, () => _buffDataToDuration[buffData] > 0,
-            () => _buffDataToDuration.Remove(buffData)));
     }
 
     private void Update()

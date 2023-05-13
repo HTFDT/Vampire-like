@@ -13,17 +13,18 @@ public class SelfInstantiatingProjectileData : ProjectileData
         base.StartActions(rb, next);
         var camProps = Camera.main!.GetComponent<CameraProps>();
         var script = rb.gameObject.GetComponent<Projectile>();
+        var projectileContainer = GameObject.FindWithTag("ProjectileContainer");
         if (rb.position.x < camProps.Left || rb.position.x > camProps.Right) return;
-        script.StartCoroutine(SpawnNextSegment(rb, script));
+        script.StartCoroutine(SpawnNextSegment(rb, script, projectileContainer.transform));
     }
 
-    private IEnumerator SpawnNextSegment(Rigidbody2D rb, Projectile script)
+    private IEnumerator SpawnNextSegment(Rigidbody2D rb, Projectile script, Transform parent)
     {
         yield return new WaitForSeconds(delayBeforeNextSegmentSpawn);
         var transform = rb.transform;
         var spriteRenderer = rb.gameObject.GetComponent<SpriteRenderer>();
         var proj = Instantiate(projectilePrefab, rb.position + (Vector2)(transform.right * (spriteRenderer.size.x * .5f)),
-            transform.rotation);
+            transform.rotation, parent);
         proj.SetActive(false);
         var sc = proj.GetComponent<Projectile>();
         sc.rb.constraints = RigidbodyConstraints2D.FreezeAll;

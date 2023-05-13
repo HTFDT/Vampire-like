@@ -10,21 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eddbd445ba9842e994925cf3d63c4aae, type: 3}
-  m_Name: Fireball
+  m_Name: BlackHole
   m_EditorClassIdentifier: 
-  baseDamage: 50
+  baseDamage: 0
   baseModifiers:
   - modifier: {fileID: 11400000, guid: 7638f4928afcdbf4788d663f2ccd7912, type: 2}
     count: 1
-  - modifier: {fileID: 11400000, guid: b6f2ec1e119e39744968b0a4d9fd9994, type: 2}
+  - modifier: {fileID: 11400000, guid: afaac7a1052141b45ac568915cf1fa3d, type: 2}
     count: 1
-  - modifier: {fileID: 11400000, guid: f99ad782c16167f409821e64315959f3, type: 2}
+  - modifier: {fileID: 11400000, guid: 2456235931f004046aac6f5f1918e897, type: 2}
     count: 1
-  - modifier: {fileID: 11400000, guid: 734603a41f374174c8c6aaf055baa052, type: 2}
-    count: 1
-  - modifier: {fileID: 11400000, guid: 9757437089c3cd2409ee7a15807249ce, type: 2}
-    count: 1
-  - modifier: {fileID: 11400000, guid: 8e890aac24cb4004ba75796a0735950f, type: 2}
-    count: 1
-  attackType: 0
-  speed: 10
+  attackType: 3
+  speed: 2

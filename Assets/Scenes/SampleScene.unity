@@ -15843,7 +15843,7 @@ MonoBehaviour:
     projectile: {fileID: 11400000, guid: 5590d886260744641bf853614c893d64, type: 2}
     attackDelay: 2
     attackType: 3
-    onSwitchAbility: {fileID: 11400000, guid: 8434850b43355ff478ffd5a2365335e4, type: 2}
+    onSwitchAbility: {fileID: 11400000, guid: 7c281c677116e784ba54c33a16410ed1, type: 2}
 --- !u!70 &666434406
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
