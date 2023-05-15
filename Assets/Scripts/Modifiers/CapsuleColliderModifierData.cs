@@ -14,11 +14,10 @@ public class CapsuleColliderModifierData : ModifierData
     private void KeepColliderForm(Rigidbody2D rb, ChainNode<Rigidbody2D> next)
     {
         var collider = rb.gameObject.GetComponent<CapsuleCollider2D>();
-        var spriteRenderer = rb.gameObject.GetComponent<SpriteRenderer>();
-        if (spriteRenderer.sprite == null) return;
-        var sprite = spriteRenderer.sprite;
-        collider.direction = sprite.rect.size.x > sprite.rect.size.y ? CapsuleDirection2D.Horizontal : CapsuleDirection2D.Vertical;
-        collider.size = sprite.rect.size / sprite.pixelsPerUnit;
+        var spriteRenderer = rb.gameObject.GetComponent<SpriteRenderer>(); ;
+        var size = spriteRenderer.size;
+        collider.direction = size.x > size.y ? CapsuleDirection2D.Horizontal : CapsuleDirection2D.Vertical;
+        collider.size = size;
         next?.Action.Invoke(rb, next.Next);
     }
 }
