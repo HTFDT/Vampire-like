@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,13 +38,13 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
-        Debug.Log("Load");
     }
 
     public void Restart()
     {
-        Debug.Log("Load");
+        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1f;
     }
 }
