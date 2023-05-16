@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - ProjectileContainer
   - Obstacle
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - NonObstacleBackground
   - ProjectileIgnoringObstacle
   - Obstacle
-  - 
+  - GameField
   - 
   - 
   - 
