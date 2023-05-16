@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b345ab4e3b40f6b74fc16bdd28be95, type: 3}
   m_Name: BasicDealDamageModifier
   m_EditorClassIdentifier: 
-  weight: 0
+  weight: 5
   attackType: 4

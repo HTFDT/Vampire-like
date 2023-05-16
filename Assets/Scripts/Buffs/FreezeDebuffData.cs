@@ -13,7 +13,8 @@ public class FreezeDebuffData : BuffData
         var script = obj.GetComponent<Enemy>();
         var spriteRenderer = obj.GetComponent<SpriteRenderer>();
         var animator = obj.GetComponent<Animator>();
-        animator.enabled = false;
+        if (script.health > 0)
+            animator.enabled = false;
         spriteRenderer.color = frozenColor;
         script.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitWhile(predicate);
