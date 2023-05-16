@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec1c191b35c46b09ee5366606ef825f, type: 3}
-  m_Name: PlayerInvincibleOnSwitchAbility
+  m_Script: {fileID: 11500000, guid: f0bd651085524391acdb584026728b12, type: 3}
+  m_Name: FreezeDebuff
   m_EditorClassIdentifier: 
-  spriteColor: {r: 0.09925235, g: 0.6415094, b: 0.23627132, a: 1}
+  attackType: 1
   duration: 5
+  frozenColor: {r: 0.03137252, g: 0.14015058, b: 0.9607843, a: 1}

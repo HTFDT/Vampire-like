@@ -26,7 +26,9 @@ public abstract class EnemyData : ScriptableObject
         var script = enemy.GetComponent<Enemy>();
         script.health -= dmg;
         if (!(script.health <= 0)) return;
-        enemy.GetComponent<Animator>().SetBool("IsDead", true);
+        var animator = enemy.GetComponent<Animator>();
+        animator.enabled = true;
+        animator.SetBool("IsDead", true);
         script.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         enemy.GetComponent<Collider2D>().enabled = false;
     }

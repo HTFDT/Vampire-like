@@ -13,12 +13,11 @@ namespace Buffs
         {
             var script = obj.GetComponent<Enemy>();
             var spriteRenderer = obj.GetComponent<SpriteRenderer>();
-            var initialColor = spriteRenderer.color;
             spriteRenderer.color = spriteColor;
             script.moveSpeed -= script.moveSpeed * decrement;
             yield return new WaitWhile(predicate);
             script.moveSpeed = script.initialMoveSpeed;
-            spriteRenderer.color = initialColor;
+            spriteRenderer.color = script.initialColor;
             onDurationEnd();
         }
     }

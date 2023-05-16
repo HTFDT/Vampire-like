@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec1c191b35c46b09ee5366606ef825f, type: 3}
-  m_Name: PlayerInvincibleOnSwitchAbility
+  m_Script: {fileID: 11500000, guid: 2e7812a5d5c64b80bad7d6125b7044ee, type: 3}
+  m_Name: AirToWaterFreezeSynergyModifier
   m_EditorClassIdentifier: 
-  spriteColor: {r: 0.09925235, g: 0.6415094, b: 0.23627132, a: 1}
-  duration: 5
+  weight: 0
+  attackType: 1
+  withAttackType: 2
+  buffToApply: {fileID: 11400000, guid: bbbd973aca398c44ca07816b5e9dfed3, type: 2}

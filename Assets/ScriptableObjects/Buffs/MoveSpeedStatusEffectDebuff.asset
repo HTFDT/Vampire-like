@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ef6ca6d1e04246900ab0393ac85369, type: 3}
   m_Name: MoveSpeedStatusEffectDebuff
   m_EditorClassIdentifier: 
-  attackType: 0
+  attackType: 2
   duration: 5
   decrement: 0.2
-  spriteColor: {r: 0, g: 0.011367798, b: 1, a: 1}
+  spriteColor: {r: 0, g: 0.5956216, b: 1, a: 1}

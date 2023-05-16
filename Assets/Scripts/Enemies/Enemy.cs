@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public float health;
     public float moveSpeed;
     public float initialMoveSpeed;
+    public Color initialColor;
     private float _maxHealth;
 
     public void Init(EnemyData data)
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         damage = data.Damage;
         health = _maxHealth = data.Health;
         moveSpeed = initialMoveSpeed = data.MoveSpeed;
+        initialColor = GetComponent<SpriteRenderer>().color;
         data.ApplyTo(gameObject);
         healthBar.SetHealth(health, _maxHealth);
     }

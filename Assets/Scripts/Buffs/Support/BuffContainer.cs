@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class BuffContainer : MonoBehaviour
 {
-    private Dictionary<BuffData, float> _buffDataToDuration = new();
+    public readonly Dictionary<BuffData, float> BuffDataToDuration = new();
 
     public void ApplyBuff(BuffData buffData)
     {
-        if (!_buffDataToDuration.ContainsKey(buffData))
+        if (!BuffDataToDuration.ContainsKey(buffData))
         {
-            _buffDataToDuration[buffData] = buffData.duration;
-            StartCoroutine(buffData.Buff(gameObject, () => _buffDataToDuration[buffData] > 0,
-                () => _buffDataToDuration.Remove(buffData)));
+            BuffDataToDuration[buffData] = buffData.duration;
+            StartCoroutine(buffData.Buff(gameObject, () => BuffDataToDuration[buffData] > 0,
+                () => BuffDataToDuration.Remove(buffData)));
             return;
         }
-        _buffDataToDuration[buffData] = buffData.duration;
+        BuffDataToDuration[buffData] = buffData.duration;
     }
 
     private void Update()
     {
-        var buffs = _buffDataToDuration.Keys.ToArray();
+        var buffs = BuffDataToDuration.Keys.ToArray();
         foreach (var buff in buffs)
-            _buffDataToDuration[buff] -= Time.deltaTime;
+            BuffDataToDuration[buff] -= Time.deltaTime;
     }
 }
