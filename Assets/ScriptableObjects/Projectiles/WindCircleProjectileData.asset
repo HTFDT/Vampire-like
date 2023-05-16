@@ -26,6 +26,8 @@ MonoBehaviour:
     count: 1
   - modifier: {fileID: 11400000, guid: 7761036d74914da4b8ad6677dec7d923, type: 2}
     count: 1
+  - modifier: {fileID: 11400000, guid: 076c14e8ef5ce8641817890ff68804de, type: 2}
+    count: 1
   - modifier: {fileID: 11400000, guid: 7c6797da4f2072a4abcecac5a624ce46, type: 2}
     count: 1
   attackType: 1

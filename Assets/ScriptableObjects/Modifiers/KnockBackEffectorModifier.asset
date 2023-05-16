@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c0b59bc6198446a8320a2921392bde6, type: 3}
-  m_Name: BlackHolePointEffectorModifier
+  m_Name: KnockBackEffectorModifier
   m_EditorClassIdentifier: 
-  weight: 10
-  attackType: 3
-  forceMagnitude: -300
+  weight: 0
+  attackType: 4
+  forceMagnitude: 300
   drag: 0
-  colliderIsTrigger: 1
+  colliderIsTrigger: 0

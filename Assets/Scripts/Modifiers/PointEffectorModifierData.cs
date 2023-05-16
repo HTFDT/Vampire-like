@@ -7,6 +7,7 @@ public class PointEffectorModifierData : ModifierData
     public override ModifierTag Tag => ModifierTag.Initialization;
     public float forceMagnitude;
     public float drag;
+    public bool colliderIsTrigger;
     
     public override void ApplyTo(GameObject projectile, int modifierCount)
     {
@@ -17,7 +18,7 @@ public class PointEffectorModifierData : ModifierData
     {
         var collider = rb.gameObject.GetComponent<Collider2D>();
         collider.usedByEffector = true;
-        collider.isTrigger = true;
+        collider.isTrigger = colliderIsTrigger;
         var effector = rb.gameObject.AddComponent<PointEffector2D>();
         effector.useColliderMask = false;
         effector.forceMagnitude = forceMagnitude;
