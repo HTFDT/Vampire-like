@@ -16,7 +16,6 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemyContainer;
     public float generalSpawnDelayInSeconds;
     public float distanceFromCameraBorder;
-    public float waveSpawnRadius;
     public float singleEnemySpawnRadius;
     public int numberOfCollisionChecks;
     public int maxAttemptsToSpawn;
@@ -41,14 +40,30 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyDataList.AddRange(wave.enemies);
 
-        var positions = new List<Vector2>();
-        for (var i = 0; i < maxAttemptsToSpawn; i++)
-        {
-            var pos = GetNextSpawnPosition(waveSpawnRadius);
-            if (CanSpawnInRadius(pos, waveSpawnRadius, wave.waveSize, out positions))
-                break;
-        }
+        var positions = GetSpawnPositions(wave.waveSize);
+        
         StartCoroutine(SpawnWaveCoroutine(wave, positions));
+    }
+
+    private List<Vector2> GetSpawnPositions(int n)
+    {
+        var positions = new List<Vector2>();
+        for (var i = 0; i < n; i++)
+        {
+            var pos = Vector2.zero;
+            for (var j = 0; j < maxAttemptsToSpawn; j++)
+            {
+                var posToTry = GetNextSpawnPosition(singleEnemySpawnRadius);
+                if (!CanSpawnOn(posToTry)) continue;
+                pos = posToTry;
+                break;
+            }
+
+            if (pos == Vector2.zero) continue;
+            positions.Add(pos);
+        }
+
+        return positions;
     }
 
     private IEnumerator SpawnWaveCoroutine(WaveController.Wave wave, List<Vector2> positions)
@@ -58,19 +73,6 @@ public class EnemySpawner : MonoBehaviour
             SpawnOne(wave.enemies[Random.Range(0, wave.enemies.Count - 1)], pos);
             yield return new WaitForSeconds(1 / wave.rate);
         }
-    }
-
-    private bool CanSpawnInRadius(Vector2 position, float radius, int numberToSpawn, out List<Vector2> positions)
-    {
-        positions = new List<Vector2>();
-        var positionsToTry = new List<Vector2>();
-        for (var i = 0; i < numberToSpawn; i++)
-            positionsToTry.Add(position + Random.insideUnitCircle * radius);
-
-        var canSpawn = positionsToTry.All(CanSpawnOn);
-        if (canSpawn)
-            positions = positionsToTry;
-        return canSpawn;
     }
 
     private IEnumerator SpawnGeneralCoroutine()
