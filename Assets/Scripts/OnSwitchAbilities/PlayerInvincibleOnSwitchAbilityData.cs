@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,7 +9,7 @@ public class PlayerInvincibleOnSwitchAbilityData : OnSwitchAbilityData
     public Color spriteColor;
     public float duration;
 
-    public override void Apply(GameObject player)
+    public override void Apply(GameObject player, IEnumerable<ModifierCount> modifiers)
     {
         var script = player.GetComponent<PlayerHealth>();
         script.StopAllCoroutines();

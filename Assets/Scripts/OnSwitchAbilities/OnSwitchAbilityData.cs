@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class OnSwitchAbilityData : ScriptableObject
 {
-    public abstract void Apply(GameObject player);
+    public abstract void Apply(GameObject player, IEnumerable<ModifierCount> modifiers);
 }

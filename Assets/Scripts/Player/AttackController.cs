@@ -74,7 +74,7 @@ public class AttackController : MonoBehaviour
 
     private IEnumerator LaunchAttackCycle()
     {
-        AttackTypeToManager[_currentAttackType].onSwitchAbility.Apply(gameObject);
+        AttackTypeToManager[_currentAttackType].onSwitchAbility.Apply(gameObject, AttackTypeToManager[_currentAttackType].modifiers);
         while (true)
         {
             var data = AttackTypeToManager[_currentAttackType].projectile;

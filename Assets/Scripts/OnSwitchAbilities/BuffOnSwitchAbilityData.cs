@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "OnSwitchAbilities/New BuffOnSwitchAbilityData")]
@@ -8,7 +9,7 @@ public class BuffOnSwitchAbilityData : OnSwitchAbilityData
       public BuffData debuff;
       public float timeBeforeColliderDestroying;
 
-      public override void Apply(GameObject player)
+      public override void Apply(GameObject player, IEnumerable<ModifierCount> modifiers)
       {
           var obj = new GameObject();
           obj.SetActive(false);
