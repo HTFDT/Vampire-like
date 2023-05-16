@@ -15830,6 +15830,8 @@ MonoBehaviour:
       count: 1
     - modifier: {fileID: 11400000, guid: bf0580b6d448eb94e86fbbec97aa77ab, type: 2}
       count: 1
+    - modifier: {fileID: 11400000, guid: c096b83f3f1069c4daf50d2443a2c954, type: 2}
+      count: 1
     projectile: {fileID: 11400000, guid: 92e42094c74fa4b478a2cb7f61e10d68, type: 2}
     attackDelay: 0.5
     attackType: 1

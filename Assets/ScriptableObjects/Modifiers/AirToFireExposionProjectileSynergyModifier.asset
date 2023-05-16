@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba8e51a177b4230abfe8105ed85897d, type: 3}
+  m_Name: AirToFireExposionProjectileSynergyModifier
+  m_EditorClassIdentifier: 
+  weight: 0
+  attackType: 1
+  withAttackType: 0
+  projectileToSpawn: {fileID: 11400000, guid: 0c39f19a1a38f2946b7a7506106f2953, type: 2}
+  projectilePrefab: {fileID: 4681826198375141056, guid: 66608838eb57f4c4e83f2301d01e3586, type: 3}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c3389dfaeb4185b5cc1012192d42aa, type: 3}
+  m_Name: FireExplosion
+  m_EditorClassIdentifier: 
+  baseDamage: 100
+  baseModifiers:
+  - modifier: {fileID: 11400000, guid: 9757437089c3cd2409ee7a15807249ce, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: f0e9b72850bec6840bc40f9f056afd80, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 867c05ac3d0cb07468c2ad264df5e857, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 7686f55ec05ccf34098532367502974f, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 7c6797da4f2072a4abcecac5a624ce46, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 7761036d74914da4b8ad6677dec7d923, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: f9c154ef84ee2e045961c83d07952d68, type: 2}
+    count: 1
+  attackType: 0
