@@ -26,6 +26,7 @@ public class ShootingEnemyData : DefaultEnemyData
         {
             if (Vector2.Distance(pathfindingScript.target.position, rb.position) > shootingDistance)
             {
+                script.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 script.moveSpeed = script.initialMoveSpeed;
                 pathfindingScript.MakeStep(script.moveSpeed);
                 if (projRoutine == null) return;
@@ -34,6 +35,7 @@ public class ShootingEnemyData : DefaultEnemyData
             }
             else
             {
+                script.rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 script.moveSpeed = 0;
                 if (isShooting) return;
                 projRoutine = script.StartCoroutine(SpawnProjectileCoroutine(rb));

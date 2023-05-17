@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FreezeDebuff
   m_EditorClassIdentifier: 
   attackType: 1
-  duration: 5
+  duration: 8
   frozenColor: {r: 0.03137252, g: 0.14015058, b: 0.9607843, a: 1}

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 
 [Serializable]
@@ -16,9 +17,15 @@ public class WaveController : MonoBehaviour
     [Serializable]
     public class Wave
     {
-        public List<EnemyData> enemies;
-        public int waveSize;
-        public float rate;
+        public string name;
+        public List<EnemyCount> enemies;
+    }
+
+    [Serializable]
+    public class EnemyCount
+    {
+        public EnemyData enemyData;
+        public int count;
     }
     
     public float delayBetweenWavesInSeconds;
@@ -27,10 +34,13 @@ public class WaveController : MonoBehaviour
 
     private IEnumerator LaunchWaveCountdown()
     {
-        foreach (var wave in waves)
+        while (true)
         {
-            spawnWave.Invoke(wave);
-            yield return new WaitForSeconds(delayBetweenWavesInSeconds);
+            foreach (var waveToSpawn in waves.Select(t => waves[Random.Range(0, waves.Count)]))
+            {
+                spawnWave.Invoke(waveToSpawn);
+                yield return new WaitForSeconds(delayBetweenWavesInSeconds);
+            }
         }
     }
 

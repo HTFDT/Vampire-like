@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: 73ea86ab677816846ab34dabed88204c, type: 2}
   health: 75
-  damage: 10
+  damage: 5
   moveSpeed: 2.5
   shootingDistance: 10
   projectilePrefab: {fileID: 1100214394038589557, guid: c2ec3f09515efb743a0b34bbb8fe35c4, type: 3}

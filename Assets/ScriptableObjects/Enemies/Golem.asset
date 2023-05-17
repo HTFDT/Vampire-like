@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: b17584ec35ec1b4449fabb4b24164fcb, type: 2}
-  health: 1000
-  damage: 50
+  health: 500
+  damage: 20
   moveSpeed: 1
   dashDistance: 15
   dashSpeed: 5

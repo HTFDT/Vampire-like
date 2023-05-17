@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddbd445ba9842e994925cf3d63c4aae, type: 3}
   m_Name: WindBlade
   m_EditorClassIdentifier: 
-  baseDamage: 30
+  baseDamage: 40
   baseModifiers:
   - modifier: {fileID: 11400000, guid: 9757437089c3cd2409ee7a15807249ce, type: 2}
     count: 1

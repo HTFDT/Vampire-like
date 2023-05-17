@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c3389dfaeb4185b5cc1012192d42aa, type: 3}
   m_Name: FireExplosion
   m_EditorClassIdentifier: 
-  baseDamage: 100
+  baseDamage: 75
   baseModifiers:
   - modifier: {fileID: 11400000, guid: 9757437089c3cd2409ee7a15807249ce, type: 2}
     count: 1

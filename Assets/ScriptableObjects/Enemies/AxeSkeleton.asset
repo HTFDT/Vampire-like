@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AxeSkeleton
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: 56b1bca01021af2469e60aaac376edf4, type: 2}
-  health: 100
-  damage: 10
+  health: 150
+  damage: 5
   moveSpeed: 3

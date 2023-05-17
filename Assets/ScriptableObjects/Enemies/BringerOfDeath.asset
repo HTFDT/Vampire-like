@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BringerOfDeath
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: 18c37f5c6b44cef419d1ef8f1077460c, type: 2}
-  health: 100
+  health: 200
   damage: 10
   moveSpeed: 2

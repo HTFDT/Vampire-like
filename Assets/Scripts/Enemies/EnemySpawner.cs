@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
@@ -10,7 +9,7 @@ using Vector2 = UnityEngine.Vector2;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<EnemyData> enemyDataList;
+    private HashSet<EnemyData> _enemyDataList;
     public GameObject enemyPrefab;
     public CameraProps cameraProps;
     public Transform enemyContainer;
@@ -24,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
+        _enemyDataList = new HashSet<EnemyData>();
         _pointsOnCircle = new List<Vector2>();
         for (var i = 0; i < numberOfCollisionChecks; i++)
         for (var j = 0f; j < 2 * Mathf.PI; j += 2 * Mathf.PI / numberOfCollisionChecks)
@@ -38,11 +38,9 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnWave(WaveController.Wave wave)
     {
-        enemyDataList.AddRange(wave.enemies);
-
-        var positions = GetSpawnPositions(wave.waveSize);
-        
-        StartCoroutine(SpawnWaveCoroutine(wave, positions));
+        _enemyDataList.AddRange(wave.enemies.Select(p => p.enemyData));
+        var positions = GetSpawnPositions(wave.enemies.Sum(e => e.count));
+        SpawnWaveEnemies(wave, positions);
     }
 
     private List<Vector2> GetSpawnPositions(int n)
@@ -66,12 +64,15 @@ public class EnemySpawner : MonoBehaviour
         return positions;
     }
 
-    private IEnumerator SpawnWaveCoroutine(WaveController.Wave wave, List<Vector2> positions)
+    private void SpawnWaveEnemies(WaveController.Wave wave, List<Vector2> positions)
     {
+        var enemiesToSpawn = wave.enemies.ToDictionary(c => c.enemyData, c => c.count);
         foreach (var pos in positions)
         {
-            SpawnOne(wave.enemies[Random.Range(0, wave.enemies.Count - 1)], pos);
-            yield return new WaitForSeconds(1 / wave.rate);
+            var e = enemiesToSpawn.Keys.ElementAt(Random.Range(0, enemiesToSpawn.Count));
+            if (--enemiesToSpawn[e] <= 0)
+                enemiesToSpawn.Remove(e);
+            SpawnOne(e, pos);
         }
     }
 
@@ -79,8 +80,9 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            foreach (var data in enemyDataList)
+            if (_enemyDataList.Count != 0)
             {
+                var data = _enemyDataList.ElementAt(Random.Range(0, _enemyDataList.Count));
                 var pos = Vector2.zero;
                 for (var i = 0; i < maxAttemptsToSpawn; i++)
                 {
@@ -89,13 +91,11 @@ public class EnemySpawner : MonoBehaviour
                     pos = posToTry;
                     break;
                 }
-                
-                if (pos == Vector2.zero)
-                    Debug.LogError("can't spawn general");
-                else
+
+                if (pos != Vector2.zero)
                     SpawnOne(data, pos);
-                
             }
+
             yield return new WaitForSeconds(generalSpawnDelayInSeconds);
         }
     }
@@ -143,7 +143,7 @@ public class EnemySpawner : MonoBehaviour
             if (hitCount > 0)
                 return false;
         }
-        
+
         return true;
     }
 
