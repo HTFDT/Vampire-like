@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23289915eb3b4e61917cea0c558cb308, type: 3}
+  m_Name: EnemyMage
+  m_EditorClassIdentifier: 
+  animatorController: {fileID: 9100000, guid: 73ea86ab677816846ab34dabed88204c, type: 2}
+  health: 75
+  damage: 10
+  moveSpeed: 2.5
+  shootingDistance: 10
+  projectilePrefab: {fileID: 1100214394038589557, guid: c2ec3f09515efb743a0b34bbb8fe35c4, type: 3}
+  projectile: {fileID: 11400000, guid: b16c05d226c8ada4faa3e52d0fac6c71, type: 2}
+  delayInSeconds: 5
+  delayBeforeStartShootingInSeconds: 0.3

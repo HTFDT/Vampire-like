@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eddbd445ba9842e994925cf3d63c4aae, type: 3}
+  m_Name: EnemyFireball
+  m_EditorClassIdentifier: 
+  baseDamage: 10
+  baseModifiers:
+  - modifier: {fileID: 11400000, guid: 2c5b67ad1e3e670409a4220a5a1f6a78, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: d3a8e03e9f403f8409ec773d48cad5fe, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 8dd9eb3845fde124ab5a827832ac8aa1, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: bb3c632b34c84094281f4f7c18d716c6, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 734603a41f374174c8c6aaf055baa052, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 7638f4928afcdbf4788d663f2ccd7912, type: 2}
+    count: 1
+  - modifier: {fileID: 11400000, guid: 734603a41f374174c8c6aaf055baa052, type: 2}
+    count: 1
+  attackType: 4
+  speed: 5

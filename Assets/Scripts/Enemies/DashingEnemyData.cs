@@ -13,6 +13,7 @@ public class DashingEnemyData : EnemyData
     public override void ApplyTo(GameObject enemyObj)
     {
         base.ApplyTo(enemyObj);
+        Destroy(enemyObj.GetComponent<DefaultEnemyPathfinding>());
         var pathfindingScript = enemyObj.AddComponent<DashingEnemyPathFinding>();
         var script = enemyObj.GetComponent<Enemy>();
         var camProps = Camera.main!.GetComponent<CameraProps>();

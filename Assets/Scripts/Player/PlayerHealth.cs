@@ -24,16 +24,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        if (canTakeDamage)
-        {
-            health -= dmg;
-            canTakeDamage = false;
-            StartCoroutine(WaitUntilInvincibilityTimePass());
-            if (health > 0) return;
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            gameObject.GetComponent<Animator>().SetBool(IsDead, true);
-        }
+        if (!canTakeDamage) return;
+        health -= dmg;
         healthBar.SetHealth(health, _maxHealth);
+        canTakeDamage = false;
+        StartCoroutine(WaitUntilInvincibilityTimePass());
+        if (health > 0) return;
+        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        gameObject.GetComponent<Animator>().SetBool(IsDead, true);
     }
 
     private IEnumerator WaitUntilInvincibilityTimePass()

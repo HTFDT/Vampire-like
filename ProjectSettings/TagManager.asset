@@ -22,7 +22,7 @@ TagManager:
   - ProjectileIgnoringObstacle
   - Obstacle
   - GameField
-  - 
+  - EnemyProjectile
   - 
   - 
   - 

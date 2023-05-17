@@ -15,6 +15,7 @@ public class DefaultEnemyPathfinding : MonoBehaviour
     protected Animator Animator;
     protected Vector2 MoveDirection;
     protected bool FacingRight = true;
+    protected Enemy EnemyScript;
     
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class DefaultEnemyPathfinding : MonoBehaviour
         Seeker = gameObject.GetComponent<Seeker>();
         Rb = gameObject.GetComponent<Rigidbody2D>();
         Animator = gameObject.GetComponent<Animator>();
+        EnemyScript = gameObject.GetComponent<Enemy>();
     }
 
     private void Start()
@@ -66,7 +68,7 @@ public class DefaultEnemyPathfinding : MonoBehaviour
         if (MoveDirection.x > .2f && !FacingRight || MoveDirection.x < -.2f && FacingRight)
             Flip();
         
-        Animator.SetBool("IsRunning", MoveDirection.magnitude > .1f);
+        Animator.SetBool("IsRunning", EnemyScript.moveSpeed > .1f);
     }
     
     private void Flip()
