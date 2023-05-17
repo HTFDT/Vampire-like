@@ -63,10 +63,10 @@ public class DefaultEnemyPathfinding : MonoBehaviour
     
     private void Update()
     {
-        if (MoveDirection.x > 0 && !FacingRight || MoveDirection.x < 0 && FacingRight)
+        if (MoveDirection.x > .2f && !FacingRight || MoveDirection.x < -.2f && FacingRight)
             Flip();
         
-        Animator.SetBool("IsRunning", MoveDirection.magnitude > 0);
+        Animator.SetBool("IsRunning", MoveDirection.magnitude > .1f);
     }
     
     private void Flip()
