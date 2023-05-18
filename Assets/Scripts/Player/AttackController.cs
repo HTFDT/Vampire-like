@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
+
+[Serializable]
+public class SetCooldownEvent : UnityEvent<AttackTypesEnum, float>
+{
+}
 
 public class AttackController : MonoBehaviour
 {
@@ -14,10 +19,11 @@ public class AttackController : MonoBehaviour
     public GameObject projectileContainer;
     public float switchCooldown;
     public List<AttackTypeManager> attackTypes;
+    public SetCooldownEvent setCooldown;
     private Dictionary<Key, AttackTypesEnum> _keyToAttackType;
     private AttackTypesEnum _currentAttackType;
     private Coroutine _currentCoroutine;
-    private bool _switchOnCooldown;
+    private bool _onCooldown;
     private PlayerInputActions _actions;
     public Dictionary<AttackTypesEnum, AttackTypeManager> AttackTypeToManager;
 
@@ -58,19 +64,20 @@ public class AttackController : MonoBehaviour
 
     private void SwitchAttackType(InputAction.CallbackContext context)
     {
-        if (_switchOnCooldown) return;
+        if (_onCooldown) return;
         var typeToSwitch = _keyToAttackType[(context.control as KeyControl)!.keyCode];
         if (_currentAttackType == typeToSwitch) return;
         _currentAttackType = typeToSwitch;
         StopCoroutine(_currentCoroutine);
         _currentCoroutine = StartCoroutine(LaunchAttackCycle());
-        _switchOnCooldown = true;
+        _onCooldown = true;
+        setCooldown.Invoke(_currentAttackType, switchCooldown);
         Invoke(nameof(EndCooldown), switchCooldown);
     }
 
     private void EndCooldown()
     {
-        _switchOnCooldown = false;
+        _onCooldown = false;
     }
 
     private IEnumerator LaunchAttackCycle()
