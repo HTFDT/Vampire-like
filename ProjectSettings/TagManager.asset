@@ -8,6 +8,7 @@ TagManager:
   - ProjectileContainer
   - Obstacle
   - Projectile
+  - UICanvas
   layers:
   - Default
   - TransparentFX

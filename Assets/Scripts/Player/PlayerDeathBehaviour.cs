@@ -6,6 +6,6 @@ public class PlayerDeathBehaviour : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Destroy(animator.gameObject, stateInfo.length);
+        GameObject.FindWithTag("UICanvas").GetComponent<GameOverScreen>().EnableGameOverScreen(stateInfo.length);
     }
 }

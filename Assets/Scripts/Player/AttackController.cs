@@ -18,6 +18,7 @@ public class AttackController : MonoBehaviour
     private AttackTypesEnum _currentAttackType;
     private Coroutine _currentCoroutine;
     private bool _switchOnCooldown;
+    private PlayerInputActions _actions;
     public Dictionary<AttackTypesEnum, AttackTypeManager> AttackTypeToManager;
 
     [Serializable]
@@ -33,9 +34,9 @@ public class AttackController : MonoBehaviour
 
     private void Awake()
     {
-        var actions = new PlayerInputActions();
-        actions.Player.SwitchAttackType.Enable();
-        actions.Player.SwitchAttackType.performed += SwitchAttackType;
+        _actions = new PlayerInputActions();
+        _actions.Player.SwitchAttackType.Enable();
+        _actions.Player.SwitchAttackType.performed += SwitchAttackType;
         _keyToAttackType = new Dictionary<Key, AttackTypesEnum>
         {
             [Key.Q] = AttackTypesEnum.Fire,
@@ -87,5 +88,10 @@ public class AttackController : MonoBehaviour
 
             yield return new WaitForSeconds(AttackTypeToManager[_currentAttackType].attackDelay);
         }
+    }
+
+    private void OnDestroy()
+    {
+        _actions.Player.SwitchAttackType.performed -= SwitchAttackType;
     }
 }

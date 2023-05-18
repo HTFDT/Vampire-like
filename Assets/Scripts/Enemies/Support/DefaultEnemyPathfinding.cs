@@ -68,7 +68,8 @@ public class DefaultEnemyPathfinding : MonoBehaviour
         if (MoveDirection.x > .2f && !FacingRight || MoveDirection.x < -.2f && FacingRight)
             Flip();
         
-        Animator.SetBool("IsRunning", EnemyScript.moveSpeed > .1f);
+        if (Animator.runtimeAnimatorController)
+            Animator.SetBool("IsRunning", EnemyScript.moveSpeed > .1f);
     }
     
     private void Flip()

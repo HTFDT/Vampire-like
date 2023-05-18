@@ -2,15 +2,16 @@ using System;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public int currentTime;
+    public float currentTime;
     public TMP_Text textElement;
 
     private void Update()
     {
-        currentTime = (int)Time.time;
-        textElement.text = currentTime / 60 + ":" + currentTime % 60;
+        currentTime += Time.deltaTime;
+        textElement.text = (int)currentTime / 60 + ":" + (int)currentTime % 60;
     }
 }
