@@ -15,6 +15,7 @@ public class CooldownController : MonoBehaviour
         public Countdown countdown;
     }
     public List<CountdownOutline> countdownOutlines;
+    public AudioSource cooldownEndSound;
     
     public void SetActiveAttackType(AttackTypesEnum activeAttackType, float cooldownTime)
     {
@@ -24,5 +25,6 @@ public class CooldownController : MonoBehaviour
             co.outline.enabled = false;
             co.countdown.SetCountdown(cooldownTime);
         }
+        cooldownEndSound.PlayDelayed(cooldownTime);
     }
 }

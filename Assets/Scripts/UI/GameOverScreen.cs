@@ -11,10 +11,12 @@ public class GameOverScreen : MonoBehaviour
     public TMP_Text score;
     public Timer timer;
     public GameObject gameOverScreen;
+    public AudioSource gameOverSound;
 
     public void EnableGameOverScreen(float inSeconds)
     {
         Invoke(nameof(Enable), inSeconds);
+        gameOverSound.Play();
     }
 
     private void Enable()
